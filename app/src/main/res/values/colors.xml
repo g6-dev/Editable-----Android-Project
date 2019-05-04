@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="col1">#E6E6E7</color>
+    <color name="col2">#CECDCD</color>
+    <color name="black">#000</color>
+    <color name="loginColor">#79A727</color>
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="redColor">#ff0000</color>
+    <color name="colorAccent">#C72121</color>
+    <color name="redColor">#ffff</color>
 </resources>

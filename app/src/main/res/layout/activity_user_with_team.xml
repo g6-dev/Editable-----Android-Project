@@ -1,123 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     tools:context=".UserWithTeamActivity">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="419dp"
+        android:layout_height="75dp"
+        android:background="@color/col1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/teamNameTxtInUserWithTeamPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="68dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
 
-        <ListView
-            android:id="@+id/playerListInUserWithTeamPage"
-            android:layout_width="200dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/locationTxtInUserWithTeamPage" />
+    <TextView
+        android:id="@+id/teamNameTxtInUserWithTeamPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@color/col1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/locationTxtInUserWithTeamPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textSize="15sp"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/teamNameTxtInUserWithTeamPage" />
+    <ListView
+        android:id="@+id/playerListInUserWithTeamPage"
+        android:layout_width="178dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/col1"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@color/col2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locationTxtInUserWithTeamPage" />
 
-        <TextView
-            android:id="@+id/txtErrInUserWithTeamPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/playerListInUserWithTeamPage" />
+    <TextView
+        android:id="@+id/locationTxtInUserWithTeamPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@color/col1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teamNameTxtInUserWithTeamPage" />
 
-        <Button
-            android:id="@+id/exitTeamBtnInUserWithTeamPage"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:onClick="exitTeamIsClickedInUserWithTeamPage"
-            android:text="Exit Team"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/findMatchBtnInUserWithTeamPage" />
+    <TextView
+        android:id="@+id/txtErrInUserWithTeamPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerListInUserWithTeamPage" />
 
-        <Button
-            android:id="@+id/findPlayerBtnInUserWithTeamPage"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:onClick="findPlayerClickedInUserWithTeamPage"
-            android:text="Find Player"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtErrInUserWithTeamPage" />
+    <Button
+        android:id="@+id/exitTeamBtnInUserWithTeamPage"
+        android:layout_width="332dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/redbtn"
+        android:fontFamily="sans-serif-smallcaps"
+        android:onClick="exitTeamIsClickedInUserWithTeamPage"
+        android:text="Exit from team"
+        android:textColor="@color/col1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findMatchBtnInUserWithTeamPage" />
 
-        <Button
-            android:id="@+id/findMatchBtnInUserWithTeamPage"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:onClick="findMatchClickedInUserWithTeamPage"
-            android:text="Find Match"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/findPlayerBtnInUserWithTeamPage" />
+    <Button
+        android:id="@+id/findPlayerBtnInUserWithTeamPage"
+        android:layout_width="121dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/greenbtn"
+        android:fontFamily="sans-serif-smallcaps"
+        android:onClick="findPlayerClickedInUserWithTeamPage"
+        android:text="Find Player"
+        android:textColor="@color/col1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/signOutInUserWithTeamPage"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:onClick="signOutClickedInUserWithTeamPage"
-            android:text="Sign Out"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exitTeamBtnInUserWithTeamPage" />
+    <Button
+        android:id="@+id/findMatchBtnInUserWithTeamPage"
+        android:layout_width="121dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/greenbtn"
+        android:fontFamily="sans-serif-smallcaps"
+        android:onClick="findMatchClickedInUserWithTeamPage"
+        android:text="Find Match"
+        android:textColor="@color/col1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findPlayerBtnInUserWithTeamPage" />
 
-    </android.support.constraint.ConstraintLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/signOutInUserWithTeamPage"
+        android:layout_width="119dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/redbtn"
+        android:fontFamily="sans-serif-smallcaps"
+        android:onClick="signOutClickedInUserWithTeamPage"
+        android:text="Sign Out"
+        android:textColor="@color/col1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exitTeamBtnInUserWithTeamPage" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="40px"
+        android:text="Players"
+        android:textColor="@color/col1"
+        app:layout_constraintBottom_toTopOf="@+id/playerListInUserWithTeamPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+</android.support.constraint.ConstraintLayout>

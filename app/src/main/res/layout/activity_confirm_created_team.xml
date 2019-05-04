@@ -4,7 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     tools:context=".ConfirmCreatedTeamActivity">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="419dp"
+        android:layout_height="75dp"
+        android:background="@color/col1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="68dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/teamNameTxtInConfirmCreatedTeamPage"
@@ -12,22 +41,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="108dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/col1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/playerListInConfirmCreatedTeamPage"
-        android:layout_width="200dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="241dp"
+        android:layout_height="324dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/col1"
+        android:textColor="@color/col2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/teamLocationTxtInConfirmCreatedTeamPage" />
 
@@ -35,20 +67,23 @@
         android:id="@+id/teamLocationTxtInConfirmCreatedTeamPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:textColor="@color/col1"
         android:textSize="15sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/teamNameTxtInConfirmCreatedTeamPage" />
 
     <Button
         android:id="@+id/createMyTeamInConfirmCreatedTeamPage"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="183dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/greenbtn"
         android:onClick="createMyTeamClickedInConfirmCreatedTeamPage"
         android:text="Create My Team"
+        android:textColor="@color/col1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtErrInConfirmCreatedTeamPage" />
@@ -57,8 +92,8 @@
         android:id="@+id/txtErrInConfirmCreatedTeamPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:textColor="@color/redColor"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerListInConfirmCreatedTeamPage" />
