@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.g6.cricspot.CricClasses.DatabaseManager;
 import android.g6.cricspot.CricObjects.MatchDetails;
 import android.g6.cricspot.CricObjects.Team;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -119,7 +122,22 @@ public class MatchActivity extends AppCompatActivity {
                 /*TODO: Finishing the match part here*/
                 // Finishing the Match part
                 if (isEmptyFields()){
-                    Toast.makeText(MatchActivity.this, "Some fields are empty!", Toast.LENGTH_LONG).show();
+
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.TOP,0,50);
+
+                    TextView text = new TextView(MatchActivity.this);
+                    text.setBackgroundColor(Color.rgb(206,205,205));
+
+                    Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                    text.setTypeface(typeface);
+                    text.setTextColor(Color.WHITE);
+                    text.setTextSize(13);
+                    text.setPadding(10,10,10,10);
+                    text.setText("Some fields are empty");
+                    toast.setView(text);
+                    toast.show();
+
                 }else {
                     dbManager.addMatchDetailsToFirebase(DatabaseManager.getDbMemberNameForMatchDetails(),
                             matchDetails);
@@ -131,7 +149,22 @@ public class MatchActivity extends AppCompatActivity {
                 }
             }
         } else {
-            Toast.makeText(MatchActivity.this, "No internet!", Toast.LENGTH_LONG).show();
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(MatchActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
         }
     }
 
@@ -142,8 +175,24 @@ public class MatchActivity extends AppCompatActivity {
             // Go back to the home
             intent = new Intent(MatchActivity.this, UserWithTeamActivity.class);
             startActivity(intent);
+
         } else {
-            Toast.makeText(MatchActivity.this, "No internet!", Toast.LENGTH_LONG).show();
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(MatchActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
         }
     }
 

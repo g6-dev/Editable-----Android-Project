@@ -6,15 +6,19 @@ import android.g6.cricspot.CricClasses.DatabaseManager;
 import android.g6.cricspot.CricClasses.TwoRowListAdapter;
 import android.g6.cricspot.CricObjects.NameAndLocation;
 import android.g6.cricspot.CricObjects.Team;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,7 +135,21 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
             intent = new Intent(UserWithoutTeamActivity.this, CreateTeamActivity.class);
             startActivity(intent);
         } else {
-            txtErr.setText(R.string.noInternet);
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(UserWithoutTeamActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
         }
     }
 
@@ -139,7 +157,22 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
         if (isInternetOn()) { // Is internet on?
             if (!DatabaseManager.getIsTeamsRetrieved()) {
                 dbManager.retrieveAllTeamsFromDatabase(dbMemberNameForTeam);
-                txtErr.setText("Retrieving data, try in a while!!!");
+
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP,0,50);
+
+                TextView text = new TextView(UserWithoutTeamActivity.this);
+                text.setBackgroundColor(Color.rgb(206,205,205));
+
+                Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.WHITE);
+                text.setTextSize(13);
+                text.setPadding(10,10,10,10);
+                text.setText("Loading data");
+                toast.setView(text);
+                toast.show();
+
             } else {
                 teamList = DatabaseManager.getTeamsList();
                 txtErr.setText(""); // No errors
@@ -173,7 +206,22 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
                 });
             }
         } else {
-            txtErr.setText("Cannot reach the Internet!");
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(UserWithoutTeamActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
         }
     }
 

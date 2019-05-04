@@ -119,7 +119,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             dbManager.addPlayerToFirebase(dbMemberNameForPlayer, player);
 
             Toast toast = new Toast(getApplicationContext());
-            toast.setGravity(Gravity.TOP,0,920);
+            toast.setGravity(Gravity.TOP,0,50);
 
             TextView text = new TextView(CreateAccountActivity.this);
             text.setBackgroundColor(Color.rgb(206,205,205));
