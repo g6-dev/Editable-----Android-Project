@@ -6,7 +6,7 @@
     <color name="loginColor">#79A727</color>
 
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#334AC0</color>
     <color name="colorAccent">#C72121</color>
     <color name="redColor">#ffff</color>
 </resources>

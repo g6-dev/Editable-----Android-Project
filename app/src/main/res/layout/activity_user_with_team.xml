@@ -55,14 +55,14 @@
 
     <ListView
         android:id="@+id/playerListInUserWithTeamPage"
-        android:layout_width="178dp"
-        android:layout_height="220dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="190dp"
+        android:layout_height="218dp"
+        android:layout_marginTop="40dp"
         android:background="@color/col1"
         android:fontFamily="sans-serif-smallcaps"
         android:textColor="@color/col2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationTxtInUserWithTeamPage" />
 
