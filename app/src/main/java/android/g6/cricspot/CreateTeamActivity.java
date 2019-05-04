@@ -3,10 +3,13 @@ package android.g6.cricspot;
 import android.content.Context;
 import android.content.Intent;
 import android.g6.cricspot.CricObjects.Team;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -84,13 +87,57 @@ public class CreateTeamActivity extends AppCompatActivity {
                     intent = new Intent(CreateTeamActivity.this, ConfirmCreatedTeamActivity.class);
                     startActivity(intent);
                 }else{
-                    txtErr.setText("Can not set team as 'NO' !");
+
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.TOP,0,920);
+
+                    TextView text = new TextView(CreateTeamActivity.this);
+                    text.setBackgroundColor(Color.rgb(206,205,205));
+
+                    Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                    text.setTypeface(typeface);
+                    text.setTextColor(Color.WHITE);
+                    text.setTextSize(13);
+                    text.setPadding(10,10,10,10);
+                    text.setText("Can not set team as 'NO'!");
+                    toast.setView(text);
+                    toast.show();
+
                 }
             }else{
-                txtErr.setText(R.string.fieldsEmpty);
+
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP,0,920);
+
+                TextView text = new TextView(CreateTeamActivity.this);
+                text.setBackgroundColor(Color.rgb(206,205,205));
+
+                Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.WHITE);
+                text.setTextSize(13);
+                text.setPadding(10,10,10,10);
+                text.setText("Some Fields Are Empty!");
+                toast.setView(text);
+                toast.show();
+
             }
         }else{
-            txtErr.setText(R.string.noInternet);
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(CreateTeamActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
         }
     }
 }

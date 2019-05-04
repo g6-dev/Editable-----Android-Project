@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.g6.cricspot.CricClasses.DatabaseManager;
 import android.g6.cricspot.CricObjects.Player;
 import android.g6.cricspot.CricObjects.Team;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -54,8 +57,8 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity {
         playersNameList.add(team.getPlayer4());
         playersNameList.add(team.getPlayer5());
 
-        teamName.setText(team.getName());
-        teamLocation.setText(team.getLocation());
+        teamName.setText("Team Name : "+team.getName());
+        teamLocation.setText("Location  : "+team.getLocation());
 
         listAdapter = new ArrayAdapter<String>(ConfirmCreatedTeamActivity.this,
                 android.R.layout.simple_list_item_1,playersNameList);
@@ -77,13 +80,41 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity {
             //Update the player with changing team attribute
             dbManager.updatePlayerAttributeInFirebase(dbMemberNameForPlayer, player);
 
-            Toast.makeText(ConfirmCreatedTeamActivity.this, "Team is added", Toast.LENGTH_LONG).show();
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(ConfirmCreatedTeamActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Team "+ team.getName() +" Created Successfully");
+            toast.setView(text);
+            toast.show();
 
             //REDIRECT TO USER WITH TRAM PAGE
             intent = new Intent(ConfirmCreatedTeamActivity.this, UserWithTeamActivity.class);
             startActivity(intent);
         }else{
-            txtErr.setText(R.string.noInternet);
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(ConfirmCreatedTeamActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
         }
     }
 

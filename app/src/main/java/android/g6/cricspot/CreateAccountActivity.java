@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.g6.cricspot.CricClasses.DatabaseManager;
 import android.g6.cricspot.CricObjects.Player;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -74,9 +77,39 @@ public class CreateAccountActivity extends AppCompatActivity {
         location = locationE.getText().toString();
 
         if(!isInternetOn()){
-            txtErr.setText(R.string.noInternet);
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(CreateAccountActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
         }else if(fieldsAreEmpty(name, userName, password, age, phone, location)){
-            txtErr.setText(R.string.fieldsEmpty);
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,920);
+
+            TextView text = new TextView(CreateAccountActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Some Fields Are Empty!");
+            toast.setView(text);
+            toast.show();
+
         }else {
             txtErr.setText("");
 
@@ -85,7 +118,20 @@ public class CreateAccountActivity extends AppCompatActivity {
             //Adding the player into firebase
             dbManager.addPlayerToFirebase(dbMemberNameForPlayer, player);
 
-            Toast.makeText(CreateAccountActivity.this, "Player added", Toast.LENGTH_SHORT).show();
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,920);
+
+            TextView text = new TextView(CreateAccountActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Player "+name+" Added Successfully");
+            toast.setView(text);
+            toast.show();
+
             emptyAllTextFields();
 
             intent = new Intent(CreateAccountActivity.this, MainActivity.class);

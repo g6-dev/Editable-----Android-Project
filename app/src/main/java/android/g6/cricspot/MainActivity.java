@@ -5,14 +5,18 @@ import android.content.Intent;
 import android.g6.cricspot.CricClasses.DatabaseManager;
 import android.g6.cricspot.CricObjects.Player;
 import android.g6.cricspot.CricObjects.Team;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -81,10 +85,23 @@ public class MainActivity extends AppCompatActivity {
 
         if(isInternetOn()) {
             if (userName.equalsIgnoreCase("") || password.equalsIgnoreCase("")) {
-                txtErr.setText(R.string.fieldsEmpty);
+
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP,0,50);
+
+                TextView text = new TextView(MainActivity.this);
+                text.setBackgroundColor(Color.rgb(206,205,205));
+
+                Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.WHITE);
+                text.setTextSize(13);
+                text.setPadding(10,10,10,10);
+                text.setText("Username or/and password are empty");
+                toast.setView(text);
+                toast.show();
+
             } else {
-                txtErr.setText("Checking username & password...");
-                txtErr.setTextColor(getResources().getColor(R.color.colorPrimary));
 
                 Boolean isRetrieved = false;
                 do{ // Run till isRetrieved becomes true
@@ -130,6 +147,20 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (logIn){
+
+                    Toast toast2 = new Toast(getApplicationContext());
+                    toast2.setGravity(Gravity.TOP,0,50);
+                    TextView text2 = new TextView(MainActivity.this);
+                    text2.setBackgroundColor(Color.rgb(206,205,205));
+                    text2.setTextColor(Color.WHITE);
+                    text2.setTextSize(13);
+                    text2.setPadding(10,10,10,10);
+                    Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                    text2.setTypeface(typeface);
+                    text2.setText("Welcome to CrickSpot");
+                    toast2.setView(text2);
+                    toast2.show();
+
                     if (! hasTeam ) { //If without a team
                         intent = new Intent(MainActivity.this, UserWithoutTeamActivity.class);
                     }else{ // If with a team
@@ -137,14 +168,40 @@ public class MainActivity extends AppCompatActivity {
                     }
                     startActivity(intent); // Now redirect ->
                 }else{
-                    txtErr.setText("Invalid Username or Password!");
-                    txtErr.setTextColor(getResources().getColor(R.color.redColor));
-                }
 
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.TOP,0,50);
+
+                    TextView text = new TextView(MainActivity.this);
+                    text.setBackgroundColor(Color.rgb(206,205,205));
+                    Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                    text.setTypeface(typeface);
+                    text.setTextColor(Color.WHITE);
+                    text.setTextSize(13);
+                    text.setPadding(10,10,10,10);
+                    text.setText("Invalid username or password");
+                    toast.setView(text);
+                    toast.show();
+
+                }
 
             }
         }else{
-            txtErr.setText(R.string.noInternet);
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(MainActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
         }
 
 
@@ -157,7 +214,21 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(MainActivity.this, CreateAccountActivity.class);
             startActivity(intent);
         }else{
-            txtErr.setText(R.string.noInternet);
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(MainActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
         }
     }
 
@@ -174,9 +245,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testingPages(View view) {
-        intent = new Intent(MainActivity.this, FindMatchActivity.class);
-        startActivity(intent);
 
+        if(isInternetOn()) {
+            intent = new Intent(MainActivity.this, FindMatchActivity.class);
+            startActivity(intent);
+
+        }else{
+
+            Toast toast = new Toast(getApplicationContext());
+            toast.setGravity(Gravity.TOP,0,50);
+
+            TextView text = new TextView(MainActivity.this);
+            text.setBackgroundColor(Color.rgb(206,205,205));
+            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+            text.setTypeface(typeface);
+            text.setTextColor(Color.WHITE);
+            text.setTextSize(13);
+            text.setPadding(10,10,10,10);
+            text.setText("Network Error");
+            toast.setView(text);
+            toast.show();
+
+        }
        // System.out.println(">>>>> Nothing is tested here!");
     }
 
