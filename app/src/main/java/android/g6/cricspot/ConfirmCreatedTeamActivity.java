@@ -21,7 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConfirmCreatedTeamActivity extends AppCompatActivity {
+public class ConfirmCreatedTeamActivity extends AppCompatActivity implements View.OnClickListener{
 
     static final String dbMemberNameForTeam = "Team";
     static final String dbMemberNameForPlayer = "Player";
@@ -46,6 +46,10 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity {
         txtErr = findViewById(R.id.txtErrInConfirmCreatedTeamPage);
         playerListViewer = findViewById(R.id.playerListInConfirmCreatedTeamPage);
         createTeamBtn = findViewById(R.id.createMyTeamInConfirmCreatedTeamPage);
+
+        Button scroll = (Button)findViewById(R.id.back);
+        scroll.setOnClickListener(this);
+
 
         team = CreateTeamActivity.getThisTeam();
 
@@ -105,10 +109,9 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity {
 
             TextView text = new TextView(ConfirmCreatedTeamActivity.this);
             text.setBackgroundColor(Color.rgb(206,205,205));
-
             Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
             text.setTypeface(typeface);
-            text.setTextColor(Color.WHITE);
+            text.setTextColor(Color.rgb(190,39,39));
             text.setTextSize(13);
             text.setPadding(10,10,10,10);
             text.setText("Network Error");
@@ -127,6 +130,16 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity {
             return true;
         } else {
             return false;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                Intent intent = new Intent(this, CreateTeamActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }

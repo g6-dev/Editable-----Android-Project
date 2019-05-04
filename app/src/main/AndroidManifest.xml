@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MatchActivity"></activity>
+        <activity android:name=".Creaters"></activity>
+        <activity android:name=".MatchActivity" />
         <activity android:name=".TeamDetailsForMatchActivity" />
         <activity android:name=".FindMatchActivity" />
         <activity android:name=".PlayerDetailsActivity" />

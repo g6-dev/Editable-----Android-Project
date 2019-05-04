@@ -131,7 +131,7 @@ public class MatchActivity extends AppCompatActivity {
 
                     Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
                     text.setTypeface(typeface);
-                    text.setTextColor(Color.WHITE);
+                    text.setTextColor(Color.rgb(190,39,39));
                     text.setTextSize(13);
                     text.setPadding(10,10,10,10);
                     text.setText("Some fields are empty");
@@ -158,7 +158,7 @@ public class MatchActivity extends AppCompatActivity {
 
             Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
             text.setTypeface(typeface);
-            text.setTextColor(Color.WHITE);
+            text.setTextColor(Color.rgb(190,39,39));
             text.setTextSize(13);
             text.setPadding(10,10,10,10);
             text.setText("Network Error");
@@ -186,7 +186,7 @@ public class MatchActivity extends AppCompatActivity {
 
             Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
             text.setTypeface(typeface);
-            text.setTextColor(Color.WHITE);
+            text.setTextColor(Color.rgb(190,39,39));
             text.setTextSize(13);
             text.setPadding(10,10,10,10);
             text.setText("Network Error");

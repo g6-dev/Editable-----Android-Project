@@ -9,13 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindPlayerActivity extends AppCompatActivity {
+public class FindPlayerActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView txt;
     ListView listView;
@@ -34,6 +35,9 @@ public class FindPlayerActivity extends AppCompatActivity {
 
         listOfAllPlayers.clear();
         listOfAllPlayers = DatabaseManager.getPlayersList();
+
+        Button scroll = (Button)findViewById(R.id.back);
+        scroll.setOnClickListener(this);
 
         playersNameLocationList.clear();
 
@@ -61,5 +65,16 @@ public class FindPlayerActivity extends AppCompatActivity {
                 //Toast.makeText(UserWithoutTeamActivity.this, "Yet in Maintenance", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    //back page
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                Intent intent = new Intent(this, UserWithTeamActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

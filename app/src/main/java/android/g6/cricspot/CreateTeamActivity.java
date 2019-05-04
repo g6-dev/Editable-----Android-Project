@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class CreateTeamActivity extends AppCompatActivity {
+public class CreateTeamActivity extends AppCompatActivity implements View.OnClickListener{
 
     static final String dbMemberName = "Team";
 
@@ -52,6 +52,9 @@ public class CreateTeamActivity extends AppCompatActivity {
         teamNameE = findViewById(R.id.teamNameInCreateTeamPage);
         teamLocationE = findViewById(R.id.teamLocationInCreateTeamPage);
         nextBtn = findViewById(R.id.nextBtnInCreateTeamPage);
+
+        Button scroll = (Button)findViewById(R.id.back);
+        scroll.setOnClickListener(this);
     }
 
     /* To check the internet connection */
@@ -96,10 +99,10 @@ public class CreateTeamActivity extends AppCompatActivity {
 
                     Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
                     text.setTypeface(typeface);
-                    text.setTextColor(Color.WHITE);
+                    text.setTextColor(Color.rgb(190,39,39));
                     text.setTextSize(13);
                     text.setPadding(10,10,10,10);
-                    text.setText("Can not set team as 'NO'!");
+                    text.setText("Can't create team name like NO");
                     toast.setView(text);
                     toast.show();
 
@@ -114,7 +117,7 @@ public class CreateTeamActivity extends AppCompatActivity {
 
                 Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
                 text.setTypeface(typeface);
-                text.setTextColor(Color.WHITE);
+                text.setTextColor(Color.rgb(190,39,39));
                 text.setTextSize(13);
                 text.setPadding(10,10,10,10);
                 text.setText("Some Fields Are Empty!");
@@ -131,13 +134,24 @@ public class CreateTeamActivity extends AppCompatActivity {
             text.setBackgroundColor(Color.rgb(206,205,205));
             Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
             text.setTypeface(typeface);
-            text.setTextColor(Color.WHITE);
+            text.setTextColor(Color.rgb(190,39,39));
             text.setTextSize(13);
             text.setPadding(10,10,10,10);
             text.setText("Network Error");
             toast.setView(text);
             toast.show();
 
+        }
+    }
+
+    //back page
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                Intent intent = new Intent(this, UserWithoutTeamActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }

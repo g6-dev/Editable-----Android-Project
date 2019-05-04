@@ -9,13 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindMatchActivity extends AppCompatActivity {
+public class FindMatchActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView txtTopic;
     ListView listView;
@@ -32,6 +33,9 @@ public class FindMatchActivity extends AppCompatActivity {
 
         txtTopic = findViewById(R.id.txtInFindMatchPage);
         listView = findViewById(R.id.listViewInFindMatchPage);
+
+        Button scroll = (Button)findViewById(R.id.back);
+        scroll.setOnClickListener(this);
 
 
         listOfAllTeams.clear();
@@ -66,5 +70,16 @@ public class FindMatchActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //back page
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                Intent intent = new Intent(this, UserWithTeamActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

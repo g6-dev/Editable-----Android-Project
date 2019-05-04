@@ -21,7 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerDetailsActivity extends AppCompatActivity {
+public class PlayerDetailsActivity extends AppCompatActivity implements View.OnClickListener{
 
     TextView playerInfoTxt, userNameTxt, nameTxt, locationTxt, txtErr;
     TextView userNameE, nameE, locationE;
@@ -47,6 +47,9 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         locationE = findViewById(R.id.locationInPlayerDetailsPage);
         addPlayerButton = findViewById(R.id.addPlayerBtnInPlayerDetailsPage);
         txtErr = findViewById(R.id.txtErrInPlayerDetailsPage);
+
+        Button scroll = (Button)findViewById(R.id.back);
+        scroll.setOnClickListener(this);
 
         // name of the player selected
         intentString = getIntent().getStringExtra("tester");
@@ -111,7 +114,7 @@ public class PlayerDetailsActivity extends AppCompatActivity {
             text.setBackgroundColor(Color.rgb(206,205,205));
             Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
             text.setTypeface(typeface);
-            text.setTextColor(Color.WHITE);
+            text.setTextColor(Color.rgb(190,39,39));
             text.setTextSize(13);
             text.setPadding(10,10,10,10);
             text.setText("Network Error");
@@ -131,6 +134,17 @@ public class PlayerDetailsActivity extends AppCompatActivity {
             return true;
         } else {
             return false;
+        }
+    }
+
+    //editional stuffs
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                Intent intent = new Intent(this, FindPlayerActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }

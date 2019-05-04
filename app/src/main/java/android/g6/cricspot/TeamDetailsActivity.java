@@ -22,7 +22,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamDetailsActivity extends AppCompatActivity {
+public class TeamDetailsActivity extends AppCompatActivity implements View.OnClickListener{
 
     TextView teamName, teamLocation, txtErr;
     Button joinBtn;
@@ -47,6 +47,9 @@ public class TeamDetailsActivity extends AppCompatActivity {
         joinBtn = findViewById(R.id.joinBtnInTeamDetailsPage);
         playerListViewer = findViewById(R.id.playerListInTeamDetailsPage);
         txtErr = findViewById(R.id.txtErrInTeamDetailsPage);
+
+        Button scroll = (Button)findViewById(R.id.back);
+        scroll.setOnClickListener(this);
 
         intentString = getIntent().getStringExtra("tester");
 
@@ -91,10 +94,10 @@ public class TeamDetailsActivity extends AppCompatActivity {
 
                 Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
                 text.setTypeface(typeface);
-                text.setTextColor(Color.WHITE);
+                text.setTextColor(Color.rgb(71,165,74));
                 text.setTextSize(13);
                 text.setPadding(10,10,10,10);
-                text.setText("You join in to "+intentString+" team");
+                text.setText("You Clicked "+intentString);
                 toast.setView(text);
                 toast.show();
 
@@ -144,7 +147,7 @@ public class TeamDetailsActivity extends AppCompatActivity {
 
                 Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
                 text.setTypeface(typeface);
-                text.setTextColor(Color.WHITE);
+                text.setTextColor(Color.rgb(190,39,39));
                 text.setTextSize(13);
                 text.setPadding(10,10,10,10);
                 text.setText("Cant join at a moment");
@@ -162,7 +165,7 @@ public class TeamDetailsActivity extends AppCompatActivity {
 
             Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
             text.setTypeface(typeface);
-            text.setTextColor(Color.WHITE);
+            text.setTextColor(Color.rgb(190,39,39));
             text.setTextSize(13);
             text.setPadding(10,10,10,10);
             text.setText("Network Error");
@@ -181,6 +184,16 @@ public class TeamDetailsActivity extends AppCompatActivity {
             return true;
         } else {
             return false;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                Intent intent = new Intent(this, UserWithoutTeamActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }

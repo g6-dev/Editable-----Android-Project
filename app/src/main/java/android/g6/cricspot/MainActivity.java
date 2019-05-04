@@ -15,12 +15,13 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     //----------------------------------------------------------------------------------------------
     //To store the user's player object for the whole application program
@@ -59,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //About us
+        Button scroll = (Button)findViewById(R.id.about_us);
+        scroll.setOnClickListener(this);
+
         /* Initializing the variables */
         userNameE = findViewById(R.id.nameInLoginPage);
         passwordE = findViewById(R.id.passwordInLoginPage);
@@ -94,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
                 text.setTypeface(typeface);
-                text.setTextColor(Color.WHITE);
+                text.setTextColor(Color.rgb(190,39,39));
                 text.setTextSize(13);
                 text.setPadding(10,10,10,10);
                 text.setText("Username or/and password are empty");
@@ -152,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                     toast2.setGravity(Gravity.TOP,0,50);
                     TextView text2 = new TextView(MainActivity.this);
                     text2.setBackgroundColor(Color.rgb(206,205,205));
-                    text2.setTextColor(Color.WHITE);
+                    text2.setTextColor(Color.rgb(71,165,74));
                     text2.setTextSize(13);
                     text2.setPadding(10,10,10,10);
                     Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
@@ -176,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                     text.setBackgroundColor(Color.rgb(206,205,205));
                     Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
                     text.setTypeface(typeface);
-                    text.setTextColor(Color.WHITE);
+                    text.setTextColor(Color.rgb(190,39,39));
                     text.setTextSize(13);
                     text.setPadding(10,10,10,10);
                     text.setText("Invalid username or password");
@@ -195,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
             text.setBackgroundColor(Color.rgb(206,205,205));
             Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
             text.setTypeface(typeface);
-            text.setTextColor(Color.WHITE);
+            text.setTextColor(Color.rgb(190,39,39));
             text.setTextSize(13);
             text.setPadding(10,10,10,10);
             text.setText("Network Error");
@@ -222,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
             text.setBackgroundColor(Color.rgb(206,205,205));
             Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
             text.setTypeface(typeface);
-            text.setTextColor(Color.WHITE);
+            text.setTextColor(Color.rgb(190,39,39));
             text.setTextSize(13);
             text.setPadding(10,10,10,10);
             text.setText("Network Error");
@@ -259,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
             text.setBackgroundColor(Color.rgb(206,205,205));
             Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
             text.setTypeface(typeface);
-            text.setTextColor(Color.WHITE);
+            text.setTextColor(Color.rgb(190,39,39));
             text.setTextSize(13);
             text.setPadding(10,10,10,10);
             text.setText("Network Error");
@@ -274,4 +279,17 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         //Do nothing, don't go back
     }
+
+
+    //editional stuffs
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.about_us:
+                Intent intent = new Intent(this, Creaters.class);
+                startActivity(intent);
+                break;
+        }
+    }
+
 }
