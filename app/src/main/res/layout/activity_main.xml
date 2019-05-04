@@ -4,48 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     tools:context=".MainActivity">
+
+        <ImageView
+            android:layout_width="129dp"
+            android:layout_height="114dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/nameInLoginPage"
-            android:layout_width="wrap_content"
+            android:layout_width="274dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="196dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+            android:drawablePadding="12dp"
             android:ems="10"
             android:hint="UserName"
             android:inputType="textPersonName"
+            android:textColor="@color/col1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/passwordInLoginPage"
-            android:layout_width="wrap_content"
+            android:layout_width="274dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:drawableLeft="@drawable/ic_https_black_24dp"
+            android:drawablePadding="12dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPersonName"
+            android:textColor="@color/col1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameInLoginPage" />
 
         <Button
             android:id="@+id/loginInLoginPage"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="126dp"
+            android:layout_height="46dp"
+            android:background="@drawable/greenbtn"
             android:onClick="logInClickedInLoginPage"
             android:text="Log In"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="@color/col1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.761"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtErrInLoginPage" />
 
@@ -55,24 +78,29 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="56dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:text="Don't have an account?"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="@color/col1"
+            android:textSize="30px"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginInLoginPage" />
 
         <Button
             android:id="@+id/createAccountInLoginPage"
-            android:layout_width="200dp"
+            android:layout_width="327dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="84dp"
             android:onClick="createAccountClickedInLoginPage"
+            android:fontFamily="sans-serif-smallcaps"
             android:text="Create Account"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/noAccountTextInLoginPage" />
+            app:layout_constraintTop_toBottomOf="@+id/loginInLoginPage" />
 
         <TextView
             android:id="@+id/txtErrInLoginPage"
@@ -86,10 +114,11 @@
 
         <Button
             android:id="@+id/testerInMain"
-            android:layout_width="wrap_content"
+            android:layout_width="327dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:onClick="testingPages"
+            android:fontFamily="sans-serif-smallcaps"
             android:text="Tester"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

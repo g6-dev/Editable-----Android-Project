@@ -4,16 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background3"
     tools:context=".CreateAccountActivity">
 
     <TextView
+        android:id="@+id/textView10"
+        android:layout_width="419dp"
+        android:layout_height="75dp"
+        android:background="@color/col1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="68dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
         android:id="@+id/nameTxtInCreateAccountPage"
-        android:layout_width="75dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="116dp"
         android:text="Name"
+        android:textColor="@color/col1"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="40px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,19 +55,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
         android:ems="10"
+        android:background="@drawable/whitebtn"
+        android:textColor="@color/black"
         android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/nameTxtInCreateAccountPage"
         app:layout_constraintStart_toEndOf="@+id/nameTxtInCreateAccountPage" />
 
     <TextView
         android:id="@+id/userNameTxtInCreateAccountPage"
-        android:layout_width="75dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="User Name"
+        android:textColor="@color/col1"
+        android:textSize="40px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTxtInCreateAccountPage" />
 
@@ -45,19 +84,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/userNameTxtInCreateAccountPage"
+        android:background="@drawable/whitebtn"
+        android:textColor="@color/black"        app:layout_constraintBaseline_toBaselineOf="@+id/userNameTxtInCreateAccountPage"
         app:layout_constraintStart_toEndOf="@+id/userNameTxtInCreateAccountPage" />
 
     <TextView
         android:id="@+id/passwordTxtInCreateAccountPage"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="105dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="Password"
+        android:textColor="@color/col1"
+        android:textSize="40px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameTxtInCreateAccountPage" />
 
@@ -67,19 +112,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
         android:ems="10"
         android:inputType="textVisiblePassword"
-        app:layout_constraintBaseline_toBaselineOf="@+id/passwordTxtInCreateAccountPage"
+        android:background="@drawable/whitebtn"
+        android:textColor="@color/black"        app:layout_constraintBaseline_toBaselineOf="@+id/passwordTxtInCreateAccountPage"
         app:layout_constraintStart_toEndOf="@+id/passwordTxtInCreateAccountPage" />
 
     <TextView
         android:id="@+id/ageTxtInCreateAccountPage"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="105dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
         android:text="Age"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@color/col1"
+        android:textSize="40px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTxtInCreateAccountPage" />
 
@@ -89,19 +140,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/ageTxtInCreateAccountPage"
+        android:background="@drawable/whitebtn"
+        android:textColor="@color/black"        app:layout_constraintBaseline_toBaselineOf="@+id/ageTxtInCreateAccountPage"
         app:layout_constraintStart_toEndOf="@+id/ageTxtInCreateAccountPage" />
 
     <TextView
         android:id="@+id/phoneTxtInCreateAccountPage"
-        android:layout_width="75dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
         android:text="Phone No."
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@color/col1"
+        android:textSize="40px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ageTxtInCreateAccountPage" />
 
@@ -111,19 +168,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
         android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/phoneTxtInCreateAccountPage"
+        android:inputType="phone"
+        android:background="@drawable/whitebtn"
+        android:textColor="@color/black"        app:layout_constraintBaseline_toBaselineOf="@+id/phoneTxtInCreateAccountPage"
         app:layout_constraintStart_toEndOf="@+id/phoneTxtInCreateAccountPage" />
 
     <TextView
         android:id="@+id/locationTxtInCreateAccountPage"
-        android:layout_width="75dp"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
         android:text="Location"
+        android:textColor="@color/col1"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="40px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneTxtInCreateAccountPage" />
 
@@ -133,19 +196,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
+        android:paddingLeft="20px"
+        android:paddingRight="20px"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/locationTxtInCreateAccountPage"
+        android:background="@drawable/whitebtn"
+        android:textColor="@color/black"        app:layout_constraintBaseline_toBaselineOf="@+id/locationTxtInCreateAccountPage"
         app:layout_constraintStart_toEndOf="@+id/locationTxtInCreateAccountPage" />
 
     <Button
         android:id="@+id/createAccountBtnInCreateAccountPage"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/greenbtn"
         android:onClick="createAccountClickedInCreateAccountPage"
         android:text="Create Account"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@color/col1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtErrInCreateAccountPage" />
 
@@ -158,4 +228,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationInCreateAccountPage" />
+
 </android.support.constraint.ConstraintLayout>
