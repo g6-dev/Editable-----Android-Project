@@ -155,7 +155,7 @@ public class MatchActivity extends AppCompatActivity {
 
                         Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
                         text.setTypeface(typeface);
-                        text.setTextColor(Color.rgb(190,39,39));
+                        text.setTextColor(Color.rgb(0,128,0));
                         text.setTextSize(13);
                         text.setPadding(10,10,10,10);
                         text.setText("Match finished successfully");
@@ -217,7 +217,7 @@ public class MatchActivity extends AppCompatActivity {
 
                 Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
                 text.setTypeface(typeface);
-                text.setTextColor(Color.rgb(190,39,39));
+                text.setTextColor(Color.rgb(0,128,0));
                 text.setTextSize(13);
                 text.setPadding(10,10,10,10);
                 text.setText("Match cancelled successfully!");
