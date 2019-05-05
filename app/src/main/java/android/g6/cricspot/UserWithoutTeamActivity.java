@@ -42,6 +42,7 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_without_team);
 
@@ -59,6 +60,7 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
         if (DatabaseManager.getIsTeamsRetrieved()) {
             teamList = DatabaseManager.getTeamsList();
             System.out.println(">>>>> team list size = " + teamList.size());// testing purpose
+
             for (Team team : teamList) {
                 System.out.println(">>>>> Team : " + team);// testing purpose
                 nameAndLocationList.add(new NameAndLocation(team.getName(), team.getLocation()));
@@ -68,6 +70,7 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
                     nameAndLocationList); // create the adapter
 
             teamsListViewer.setAdapter(listAdapter);// pass adapter
+            teamsListViewer.setBackgroundColor(Color.rgb(255,255,255));
 
             /* ListViewer onClick Listener */
             teamsListViewer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -81,9 +84,12 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
                     //Toast.makeText(UserWithoutTeamActivity.this, "Yet in Maintenance", Toast.LENGTH_SHORT).show();
                 }
             });
+
         } else {
+
             teamsListViewer.setVisibility(View.INVISIBLE);
             loadTeamsBtn.setVisibility(View.VISIBLE);
+
         }
 
         //teamList = dbManager.retrieveAllTeamsFromDatabase(dbMemberNameForTeam);
@@ -129,6 +135,7 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
     }
 
     public void createTeamClickedInUserWithoutTeamPage(View view) {
+
         /*TODO: Create A team */
         if (isInternetOn()) {
             txtErr.setText("");
@@ -154,6 +161,7 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
     }
 
     public void loadTeamsIsClickedInUserWithoutTeamPage(View view) {
+
         if (isInternetOn()) { // Is internet on?
             if (!DatabaseManager.getIsTeamsRetrieved()) {
                 dbManager.retrieveAllTeamsFromDatabase(dbMemberNameForTeam);
@@ -174,6 +182,7 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
                 toast.show();
 
             } else {
+
                 teamList = DatabaseManager.getTeamsList();
                 txtErr.setText(""); // No errors
                 loadTeamsBtn.setVisibility(View.INVISIBLE); //make button invisible
@@ -205,6 +214,7 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
                     }
                 });
             }
+
         } else {
 
             Toast toast = new Toast(getApplicationContext());
@@ -227,6 +237,7 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
 
     /* To check the internet connection */
     public Boolean isInternetOn() {
+
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
@@ -235,6 +246,7 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
         } else {
             return false;
         }
+
     }
 
     @Override
@@ -243,8 +255,10 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
     }
 
     public void signOutBtnClickedInUserWithoutTeamPage(View view) {
+
         intent = new Intent(UserWithoutTeamActivity.this, MainActivity.class);
         startActivity(intent);
         /* TODO: This is sign out, some player attribute might be affected */
+
     }
 }

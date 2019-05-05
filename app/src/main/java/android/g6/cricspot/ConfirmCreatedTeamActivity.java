@@ -67,10 +67,14 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity implements Vie
         listAdapter = new ArrayAdapter<String>(ConfirmCreatedTeamActivity.this,
                 android.R.layout.simple_list_item_1,playersNameList);
         playerListViewer.setAdapter(listAdapter);
+        playerListViewer.setBackgroundColor(Color.rgb(255,255,255));
+
     }
 
     public void createMyTeamClickedInConfirmCreatedTeamPage(View view) {
+
         if(isInternetOn()){
+
             txtErr.setText("");
             dbManager.addTeamToFirebase(dbMemberNameForTeam, team);
 
@@ -81,6 +85,7 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity implements Vie
             Player player = MainActivity.getUserPlayerObject(); // Get the player object
             player.setTeam(team.getName()); // Set player's team name as the current team
             MainActivity.setUserPlayerObject(player); // Set MainActivity's player object
+
             //Update the player with changing team attribute
             dbManager.updatePlayerAttributeInFirebase(dbMemberNameForPlayer, player);
 
@@ -102,6 +107,7 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity implements Vie
             //REDIRECT TO USER WITH TRAM PAGE
             intent = new Intent(ConfirmCreatedTeamActivity.this, UserWithTeamActivity.class);
             startActivity(intent);
+
         }else{
 
             Toast toast = new Toast(getApplicationContext());
@@ -123,6 +129,7 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity implements Vie
 
     /* To check the internet connection */
     public Boolean isInternetOn(){
+
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
@@ -135,11 +142,13 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity implements Vie
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.back:
                 Intent intent = new Intent(this, CreateTeamActivity.class);
                 startActivity(intent);
                 break;
         }
+
     }
 }

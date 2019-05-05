@@ -206,16 +206,16 @@
 
     <Button
         android:id="@+id/createAccountBtnInCreateAccountPage"
-        android:layout_width="250dp"
+        android:layout_width="241dp"
         android:layout_height="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/greenbtn"
+        android:fontFamily="sans-serif-smallcaps"
         android:onClick="createAccountClickedInCreateAccountPage"
         android:text="Create Account"
-        android:fontFamily="sans-serif-smallcaps"
         android:textColor="@color/col1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtErrInCreateAccountPage" />
 
@@ -231,15 +231,16 @@
 
     <Button
         android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="576dp"
+        android:layout_width="137dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="548dp"
+        android:background="@android:color/transparent"
         android:padding="30px"
         android:text="Back To Login"
+        android:fontFamily="sans-serif-smallcaps"
         android:textColor="@color/col1"
-        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintHorizontal_bias="0.879"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

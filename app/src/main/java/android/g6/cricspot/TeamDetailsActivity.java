@@ -39,6 +39,7 @@ public class TeamDetailsActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_details);
 
@@ -79,9 +80,12 @@ public class TeamDetailsActivity extends AppCompatActivity implements View.OnCli
         listAdapter = new ArrayAdapter<String>(TeamDetailsActivity.this,
                 android.R.layout.simple_list_item_1,playersNameList);
         playerListViewer.setAdapter(listAdapter);
+        playerListViewer.setBackgroundColor(Color.rgb(255,255,255));
+
     }
 
     public void joinBtnClickedInTeamDetailsPage(View view) {
+
         if (isInternetOn()) {
             if (canHeJoin) { // Can he join ?
                 txtErr.setText("");
@@ -137,6 +141,7 @@ public class TeamDetailsActivity extends AppCompatActivity implements View.OnCli
                 /* TODO: Redirect the page to UserWithTeam Activity */
                 intent = new Intent(TeamDetailsActivity.this, UserWithTeamActivity.class);
                 startActivity(intent);
+
             } else { // If, No he can't join!
 
                 Toast toast = new Toast(getApplicationContext());
@@ -177,6 +182,7 @@ public class TeamDetailsActivity extends AppCompatActivity implements View.OnCli
 
     /* To check the internet connection */
     public Boolean isInternetOn(){
+
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
@@ -185,15 +191,18 @@ public class TeamDetailsActivity extends AppCompatActivity implements View.OnCli
         } else {
             return false;
         }
+
     }
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.back:
                 Intent intent = new Intent(this, UserWithoutTeamActivity.class);
                 startActivity(intent);
                 break;
         }
+
     }
 }

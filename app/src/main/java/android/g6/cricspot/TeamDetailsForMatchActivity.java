@@ -38,6 +38,7 @@ public class TeamDetailsForMatchActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_details_for_match);
 
@@ -58,8 +59,8 @@ public class TeamDetailsForMatchActivity extends AppCompatActivity {
             }
         }
 
-        teamName.setText(challengerTeam.getName());
-        teamLocation.setText(challengerTeam.getLocation());
+        teamName.setText("Team Name : "+challengerTeam.getName());
+        teamLocation.setText("Location : "+challengerTeam.getLocation());
 
         listOfPlayers.add(challengerTeam.getPlayer1());
         listOfPlayers.add(challengerTeam.getPlayer2());
@@ -71,9 +72,12 @@ public class TeamDetailsForMatchActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, listOfPlayers);
 
         playersList.setAdapter(listAdapter);
+        playersList.setBackgroundColor(Color.rgb(255,255,255));
+
     }
 
     public void requestMatchBtnClickedInTeamDetailsForMatchPage(View view) {
+
         if (isInternetOn()){
             Team selectedTeam = MainActivity.getUserTeamObject();
 
@@ -91,7 +95,9 @@ public class TeamDetailsForMatchActivity extends AppCompatActivity {
 
             intent = new Intent(TeamDetailsForMatchActivity.this, MatchActivity.class);
             startActivity(intent);
+
         }else{
+
             Toast toast = new Toast(getApplicationContext());
             toast.setGravity(Gravity.TOP,0,50);
 
@@ -106,11 +112,13 @@ public class TeamDetailsForMatchActivity extends AppCompatActivity {
             text.setText("Network Error");
             toast.setView(text);
             toast.show();
+
         }
     }
 
     /* To check the internet connection */
     public Boolean isInternetOn(){
+
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
@@ -119,5 +127,6 @@ public class TeamDetailsForMatchActivity extends AppCompatActivity {
         } else {
             return false;
         }
+
     }
 }

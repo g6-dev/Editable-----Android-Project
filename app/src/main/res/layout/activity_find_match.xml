@@ -50,12 +50,11 @@
 
     <ListView
         android:id="@+id/listViewInFindMatchPage"
-        android:layout_width="239dp"
-        android:layout_height="348dp"
+        android:layout_width="235dp"
+        android:layout_height="329dp"
         android:layout_marginTop="16dp"
-        android:background="@color/col1"
-        android:textColor="@color/col2"
         android:fontFamily="sans-serif-smallcaps"
+        android:listSelector="@color/col2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,15 +62,16 @@
 
     <Button
         android:id="@+id/back"
-        android:layout_width="126dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="508dp"
+        android:layout_width="128dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="488dp"
         android:background="@android:color/transparent"
         android:padding="30px"
-        android:text="Press here\nto go Back"
+        android:text="Go Back"
+        android:fontFamily="sans-serif-smallcaps"
         android:textColor="@color/col1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintHorizontal_bias="0.771"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

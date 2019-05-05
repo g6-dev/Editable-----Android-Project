@@ -63,6 +63,7 @@ public class UserWithTeamActivity extends AppCompatActivity {
         listAdapter = new ArrayAdapter<String>(UserWithTeamActivity.this,
                 android.R.layout.simple_list_item_1, listOfPlayers);
         playerListViewer.setAdapter(listAdapter);
+        playerListViewer.setBackgroundColor(Color.rgb(255,255,255));
     }
 
     public void exitTeamIsClickedInUserWithTeamPage(View view) {

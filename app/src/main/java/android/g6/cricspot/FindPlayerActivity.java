@@ -5,6 +5,7 @@ import android.g6.cricspot.CricClasses.DatabaseManager;
 import android.g6.cricspot.CricClasses.TwoRowListAdapter;
 import android.g6.cricspot.CricObjects.NameAndLocation;
 import android.g6.cricspot.CricObjects.Player;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,7 @@ public class FindPlayerActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_player);
 
@@ -52,6 +54,7 @@ public class FindPlayerActivity extends AppCompatActivity implements View.OnClic
         listAdapter = new TwoRowListAdapter(FindPlayerActivity.this, R.layout.listview_2row_activity,
                 playersNameLocationList);
         listView.setAdapter(listAdapter);
+        listView.setBackgroundColor(Color.rgb(255,255,255));
 
         /* ListViewer onClick Listener */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -70,11 +73,13 @@ public class FindPlayerActivity extends AppCompatActivity implements View.OnClic
     //back page
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.back:
                 Intent intent = new Intent(this, UserWithTeamActivity.class);
                 startActivity(intent);
                 break;
         }
+
     }
 }

@@ -22,7 +22,7 @@ public class Creaters extends AppCompatActivity implements View.OnClickListener{
 
         switch (v.getId()) {
             case R.id.button:
-                Intent intent = new Intent(this, MatchActivity.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
         }

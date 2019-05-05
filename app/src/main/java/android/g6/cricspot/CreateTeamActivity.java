@@ -92,7 +92,7 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
                 }else{
 
                     Toast toast = new Toast(getApplicationContext());
-                    toast.setGravity(Gravity.TOP,0,920);
+                    toast.setGravity(Gravity.TOP,0,50);
 
                     TextView text = new TextView(CreateTeamActivity.this);
                     text.setBackgroundColor(Color.rgb(206,205,205));
@@ -110,7 +110,7 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
             }else{
 
                 Toast toast = new Toast(getApplicationContext());
-                toast.setGravity(Gravity.TOP,0,920);
+                toast.setGravity(Gravity.TOP,0,50);
 
                 TextView text = new TextView(CreateTeamActivity.this);
                 text.setBackgroundColor(Color.rgb(206,205,205));
