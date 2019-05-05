@@ -81,30 +81,62 @@ public class PlayerDetailsActivity extends AppCompatActivity implements View.OnC
     public void addPlayerClickedInPlayerDetailsPage(View view) {
 
         if(isInternetOn()) {
-            selectedTeam = MainActivity.getUserTeamObject();
-            /*TODO: Add the player into the team + team into the player*/
-            selectedPlayer.setTeam(selectedTeam.getName());
 
-            if(selectedTeam.getPlayer1().equalsIgnoreCase("no")){
-                selectedTeam.setPlayer1(selectedPlayer.getUserName());
-            }else if(selectedTeam.getPlayer2().equalsIgnoreCase("no")){
-                selectedTeam.setPlayer2(selectedPlayer.getUserName());
-            }else if(selectedTeam.getPlayer3().equalsIgnoreCase("no")){
-                selectedTeam.setPlayer3(selectedPlayer.getUserName());
-            }else if(selectedTeam.getPlayer4().equalsIgnoreCase("no")){
-                selectedTeam.setPlayer4(selectedPlayer.getUserName());
-            }else if(selectedTeam.getPlayer5().equalsIgnoreCase("no")){
-                selectedTeam.setPlayer5(selectedPlayer.getUserName());
+            if (MainActivity.getUserPlayerObject().getType().equalsIgnoreCase("admin")) {
+                selectedTeam = MainActivity.getUserTeamObject();
+                /*TODO: Add the player into the team + team into the player*/
+                selectedPlayer.setTeam(selectedTeam.getName());
+
+                if (selectedTeam.getPlayer1().equalsIgnoreCase("no")) {
+                    selectedTeam.setPlayer1(selectedPlayer.getUserName());
+                } else if (selectedTeam.getPlayer2().equalsIgnoreCase("no")) {
+                    selectedTeam.setPlayer2(selectedPlayer.getUserName());
+                } else if (selectedTeam.getPlayer3().equalsIgnoreCase("no")) {
+                    selectedTeam.setPlayer3(selectedPlayer.getUserName());
+                } else if (selectedTeam.getPlayer4().equalsIgnoreCase("no")) {
+                    selectedTeam.setPlayer4(selectedPlayer.getUserName());
+                } else if (selectedTeam.getPlayer5().equalsIgnoreCase("no")) {
+                    selectedTeam.setPlayer5(selectedPlayer.getUserName());
+                }
+
+                /*TODO: Update the player in firebase - ! - nOT MAINACTIVITY*/
+                dbManager.updatePlayerAttributeInFirebase(DatabaseManager.getDbMemberNameForPlayer(), selectedPlayer);
+                /*TODO: Update the team in firebase + MainActivity*/
+                dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), selectedTeam);
+                MainActivity.setUserTeamObject(selectedTeam);
+
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP, 0, 50);
+
+                TextView text = new TextView(PlayerDetailsActivity.this);
+                text.setBackgroundColor(Color.rgb(206, 205, 205));
+                Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.rgb(190, 39, 39));
+                text.setTextSize(13);
+                text.setPadding(10, 10, 10, 10);
+                text.setText("Player " + selectedPlayer.getUserName() + " Added Succesfully ");
+                toast.setView(text);
+                toast.show();
+
+                /*TODO: Redirect the page to UserWithTeam Activity*/
+                intent = new Intent(PlayerDetailsActivity.this, UserWithTeamActivity.class);
+                startActivity(intent);
+            }else{
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP, 0, 50);
+
+                TextView text = new TextView(PlayerDetailsActivity.this);
+                text.setBackgroundColor(Color.rgb(206, 205, 205));
+                Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.rgb(190, 39, 39));
+                text.setTextSize(13);
+                text.setPadding(10, 10, 10, 10);
+                text.setText("Only Admin Is Able To Add Player !");
+                toast.setView(text);
+                toast.show();
             }
-
-            /*TODO: Update the player in firebase - ! - nOT MAINACTIVITY*/
-            dbManager.updatePlayerAttributeInFirebase(DatabaseManager.getDbMemberNameForPlayer(), selectedPlayer);
-            /*TODO: Update the team in firebase + MainActivity*/
-            dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), selectedTeam);
-            MainActivity.setUserTeamObject(selectedTeam);
-            /*TODO: Redirect the page to UserWithTeam Activity*/
-            intent = new Intent(PlayerDetailsActivity.this, UserWithTeamActivity.class);
-            startActivity(intent);
         }else{
 
             Toast toast = new Toast(getApplicationContext());
