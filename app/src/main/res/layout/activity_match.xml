@@ -90,7 +90,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.006"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/statusTxtInMatchPage2" />
+            app:layout_constraintTop_toBottomOf="@+id/statusTxtInMatchPage" />
 
         <TextView
             android:id="@+id/yourPlayer1txtInMatchPage"

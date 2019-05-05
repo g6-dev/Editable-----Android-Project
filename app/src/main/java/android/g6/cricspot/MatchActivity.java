@@ -105,48 +105,84 @@ public class MatchActivity extends AppCompatActivity {
 
     public void startOrFinishClickedInMatchPageButton(View view) {
         if (isInternetOn()) {
-            if (startMatch.getText().toString().equalsIgnoreCase("Start Match")) {
-                /*TODO: Accepting the request part here*/
-                // Accepting the request part
+            if(MainActivity.getUserPlayerObject().getType().equalsIgnoreCase("admin")) {
 
-                selectedTeam.setPlaying(true); // Make changes here
-                MainActivity.setUserTeamObject(selectedTeam); // Make changes in MainActivity
-                dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(),
-                        selectedTeam); // Make changes in Fire Base
+                if (startMatch.getText().toString().equalsIgnoreCase("Start Match")) {
+                    /*TODO: Accepting the request part here*/
+                    // Accepting the request part
 
-                setEditors(true); // now it is editable
+                    selectedTeam.setPlaying(true); // Make changes here
+                    MainActivity.setUserTeamObject(selectedTeam); // Make changes in MainActivity
+                    dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(),
+                            selectedTeam); // Make changes in Fire Base
 
-                startMatch.setText("Finish Match"); // Change the button now
+                    setEditors(true); // now it is editable
 
-            } else if (startMatch.getText().toString().equalsIgnoreCase("Finish Match")) {
-                /*TODO: Finishing the match part here*/
-                // Finishing the Match part
-                if (isEmptyFields()){
+                    statusTxt.setText("You Accepted The Match...");
+                    startMatch.setText("Finish Match"); // Change the button now
 
-                    Toast toast = new Toast(getApplicationContext());
-                    toast.setGravity(Gravity.TOP,0,50);
+                } else if (startMatch.getText().toString().equalsIgnoreCase("Finish Match")) {
+                    /*TODO: Finishing the match part here*/
+                    // Finishing the Match part
+                    if (isEmptyFields()) {
 
-                    TextView text = new TextView(MatchActivity.this);
-                    text.setBackgroundColor(Color.rgb(206,205,205));
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
 
-                    Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
-                    text.setTypeface(typeface);
-                    text.setTextColor(Color.rgb(190,39,39));
-                    text.setTextSize(13);
-                    text.setPadding(10,10,10,10);
-                    text.setText("Some fields are empty");
-                    toast.setView(text);
-                    toast.show();
+                        TextView text = new TextView(MatchActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
 
-                }else {
-                    dbManager.addMatchDetailsToFirebase(DatabaseManager.getDbMemberNameForMatchDetails(),
-                            matchDetails);
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("Some fields are empty");
+                        toast.setView(text);
+                        toast.show();
 
-                    updateEndingMatch();
+                    } else {
+                        dbManager.addMatchDetailsToFirebase(DatabaseManager.getDbMemberNameForMatchDetails(),
+                                matchDetails);
 
-                    intent = new Intent(MatchActivity.this, UserWithTeamActivity.class);
-                    startActivity(intent);
+                        updateEndingMatch(); // All database changes are here
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP,0,50);
+
+                        TextView text = new TextView(MatchActivity.this);
+                        text.setBackgroundColor(Color.rgb(206,205,205));
+
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190,39,39));
+                        text.setTextSize(13);
+                        text.setPadding(10,10,10,10);
+                        text.setText("Match finished successfully");
+                        toast.setView(text);
+                        toast.show();
+
+                        intent = new Intent(MatchActivity.this, UserWithTeamActivity.class);
+                        startActivity(intent);
+                    }
                 }
+            }else{
+
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP,0,50);
+
+                TextView text = new TextView(MatchActivity.this);
+                text.setBackgroundColor(Color.rgb(206,205,205));
+
+                Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.rgb(190,39,39));
+                text.setTextSize(13);
+                text.setPadding(10,10,10,10);
+                text.setText("Only Admin Is Allowed!");
+                toast.setView(text);
+                toast.show();
+
             }
         } else {
 
@@ -170,11 +206,43 @@ public class MatchActivity extends AppCompatActivity {
 
     public void cancelClickedInMatchPage(View view) {
         if (isInternetOn()) {
-            updateEndingMatch();
+            if (MainActivity.getUserPlayerObject().getType().equalsIgnoreCase("admin")) {
+                updateEndingMatch(); // Database changing's are here
 
-            // Go back to the home
-            intent = new Intent(MatchActivity.this, UserWithTeamActivity.class);
-            startActivity(intent);
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP,0,50);
+
+                TextView text = new TextView(MatchActivity.this);
+                text.setBackgroundColor(Color.rgb(206,205,205));
+
+                Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.rgb(190,39,39));
+                text.setTextSize(13);
+                text.setPadding(10,10,10,10);
+                text.setText("Match cancelled successfully!");
+                toast.setView(text);
+                toast.show();
+
+                // Go back to the home
+                intent = new Intent(MatchActivity.this, UserWithTeamActivity.class);
+                startActivity(intent);
+            }else{
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP,0,50);
+
+                TextView text = new TextView(MatchActivity.this);
+                text.setBackgroundColor(Color.rgb(206,205,205));
+
+                Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.rgb(190,39,39));
+                text.setTextSize(13);
+                text.setPadding(10,10,10,10);
+                text.setText("Only Admin is allowed!");
+                toast.setView(text);
+                toast.show();
+            }
 
         } else {
 
