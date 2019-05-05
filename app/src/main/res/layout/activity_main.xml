@@ -120,6 +120,8 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-smallcaps"
             android:onClick="testingPages"
+            android:visibility="invisible"
+            android:enabled="false"
             android:text="Tester"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
