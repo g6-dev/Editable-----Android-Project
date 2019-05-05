@@ -2,6 +2,7 @@ package android.g6.cricspot;
 
 import android.content.Context;
 import android.content.Intent;
+import android.g6.cricspot.CricClasses.DatabaseManager;
 import android.g6.cricspot.CricObjects.Team;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -16,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreateTeamActivity extends AppCompatActivity implements View.OnClickListener{
@@ -39,6 +41,7 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
     String teamName, teamLocation;
     Team team;
     Intent intent;
+    List<Team> listOfAllTeams = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,16 +82,46 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
                     txtErr.setText("");
                     //Toast.makeText(CreateTeamActivity.this, "In maintenance", Toast.LENGTH_SHORT).show();
 
-                    // Creating a new Team with User as the first member
-                    team = new Team(teamName, teamLocation,
-                            MainActivity.getUserPlayerObject().getUserName(),
-                            "no", "no", "no", "no",
-                            "no", false);
+                    if (DatabaseManager.getIsTeamsRetrieved()) {
+                        listOfAllTeams = DatabaseManager.getTeamsList();
+                    }
 
-                    setThisTeam(team);
+                    Boolean isTeamExist = false;
+                    for(Team thisTeam: listOfAllTeams){
+                        if(thisTeam.getName().equalsIgnoreCase(teamName)){
+                            isTeamExist = true;
+                        }
+                    }
 
-                    intent = new Intent(CreateTeamActivity.this, ConfirmCreatedTeamActivity.class);
-                    startActivity(intent);
+                    if( ! isTeamExist ) {
+                        // Creating a new Team with User as the first member
+                        team = new Team(teamName, teamLocation,
+                                MainActivity.getUserPlayerObject().getUserName(),
+                                "no", "no", "no", "no",
+                                "no", false);
+
+                        setThisTeam(team);
+
+                        intent = new Intent(CreateTeamActivity.this, ConfirmCreatedTeamActivity.class);
+                        startActivity(intent);
+                    }else{
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP,0,920);
+
+                        TextView text = new TextView(CreateTeamActivity.this);
+                        text.setBackgroundColor(Color.rgb(206,205,205));
+
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190,39,39));
+                        text.setTextSize(13);
+                        text.setPadding(10,10,10,10);
+                        text.setText("Team name already exist!");
+                        toast.setView(text);
+                        toast.show();
+
+                    }
                 }else{
 
                     Toast toast = new Toast(getApplicationContext());

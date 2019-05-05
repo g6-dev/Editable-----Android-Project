@@ -111,7 +111,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Boolean isRetrieved = false;
                 do{ // Run till isRetrieved becomes true
                   isRetrieved = DatabaseManager.getIsPlayersRetrieved();
-                  System.out.println(">>>>> Player isRetrieved not yet 'true'");
+                  if (!isRetrieved) {
+                      System.out.println(">>>>> Player isRetrieved not yet 'true'");
+                  }
                 }while(!isRetrieved);
 
                 List<Player> listOfPlayers = DatabaseManager.getPlayersList();
@@ -136,7 +138,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 isRetrieved = false;
                                 do{ // Run till isRetrieved becomes true
                                     isRetrieved = DatabaseManager.getIsTeamsRetrieved();
-                                    System.out.println(">>>>> Team isRetrieved not yet 'true'");
+                                    if (!isRetrieved) {
+                                        System.out.println(">>>>> Team isRetrieved not yet 'true'");
+                                    }
                                 }while(!isRetrieved);
 
                                 List<Team> listOfTeams = DatabaseManager.getTeamsList();

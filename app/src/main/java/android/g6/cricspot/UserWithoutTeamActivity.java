@@ -54,11 +54,11 @@ public class UserWithoutTeamActivity extends AppCompatActivity {
         teamsListViewer = findViewById(R.id.teamListInUserWithoutTeamPage);
         heyUserTxt.setText("Champ " + MainActivity.getUserPlayerObject().getName());
 
-        teamList.clear();
         nameAndLocationList.clear(); // clear before viewing
 
         if (DatabaseManager.getIsTeamsRetrieved()) {
             teamList = DatabaseManager.getTeamsList();
+            System.out.println(">>>>> size : " + DatabaseManager.getTeamsList().size()); // testing purpose
             System.out.println(">>>>> team list size = " + teamList.size());// testing purpose
 
             for (Team team : teamList) {
