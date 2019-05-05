@@ -125,30 +125,79 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
             }
 
             if ( ! isPlayerExist ) { // If you're a new username
+
                 player = new Player(name, userName, password, age, phone, "no", location, "user");
 
-                //Adding the player into firebase
-                dbManager.addPlayerToFirebase(dbMemberNameForPlayer, player);
+                if(phone.length() == 10 ){
 
-                Toast toast = new Toast(getApplicationContext());
-                toast.setGravity(Gravity.TOP, 0, 50);
+                    if(password.length() <= 8){
+                        //Adding the player into firebase
+                        dbManager.addPlayerToFirebase(dbMemberNameForPlayer, player);
 
-                TextView text = new TextView(CreateAccountActivity.this);
-                text.setBackgroundColor(Color.rgb(206, 205, 205));
-                Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
-                text.setTypeface(typeface);
-                text.setTextColor(Color.rgb(190, 39, 39));
-                text.setTextSize(13);
-                text.setPadding(10, 10, 10, 10);
-                text.setText("Player " + name + " Added Successfully");
-                toast.setView(text);
-                toast.show();
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
 
-                emptyAllTextFields();
+                        TextView text = new TextView(CreateAccountActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("Player " + name + " Added Successfully\n  Password is not secure");
+                        toast.setView(text);
+                        toast.show();
 
-                intent = new Intent(CreateAccountActivity.this, MainActivity.class);
-                startActivity(intent);
+                        emptyAllTextFields();
+
+                        intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+                        startActivity(intent);
+
+                    }else{
+
+                        //Adding the player into firebase
+                        dbManager.addPlayerToFirebase(dbMemberNameForPlayer, player);
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
+
+                        TextView text = new TextView(CreateAccountActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("Player " + name + " Added Successfully");
+                        toast.setView(text);
+                        toast.show();
+
+                        emptyAllTextFields();
+
+                        intent = new Intent(CreateAccountActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+
+                }else{
+
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.TOP, 0, 50);
+
+                    TextView text = new TextView(CreateAccountActivity.this);
+                    text.setBackgroundColor(Color.rgb(206, 205, 205));
+                    Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                    text.setTypeface(typeface);
+                    text.setTextColor(Color.rgb(190, 39, 39));
+                    text.setTextSize(13);
+                    text.setPadding(10, 10, 10, 10);
+                    text.setText("invalid mobile number");
+                    toast.setView(text);
+                    toast.show();
+
+                }
+
             }else{
+
                 Toast toast = new Toast(getApplicationContext());
                 toast.setGravity(Gravity.TOP, 0, 50);
 
@@ -159,9 +208,10 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                 text.setTextColor(Color.rgb(190, 39, 39));
                 text.setTextSize(13);
                 text.setPadding(10, 10, 10, 10);
-                text.setText("UserName " + name + " Already exist !");
+                text.setText("UserName " + userName + " Already exist !");
                 toast.setView(text);
                 toast.show();
+
             }
         }
     }
@@ -177,6 +227,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         }else {
             return false;
         }
+
     }
 
     /* To check the internet connection */
@@ -192,22 +243,26 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     }
 
     public void emptyAllTextFields(){
+
         nameE.setText("");
         userNameE.setText("");
         passwordE.setText("");
         ageE.setText("");
         phoneE.setText("");
         locationE.setText("");
+
     }
 
     //editional stuffs
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.back:
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
         }
+
     }
 }

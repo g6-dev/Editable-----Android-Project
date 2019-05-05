@@ -117,7 +117,7 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
                         text.setTextColor(Color.rgb(190,39,39));
                         text.setTextSize(13);
                         text.setPadding(10,10,10,10);
-                        text.setText("Team name already exist!");
+                        text.setText("Team "+teamName+" already exist!");
                         toast.setView(text);
                         toast.show();
 
