@@ -144,9 +144,27 @@ public class UserWithTeamActivity extends AppCompatActivity {
 
     public void findPlayerClickedInUserWithTeamPage(View view) {
         if (isInternetOn()) {
-            txtErr.setText("");
-            intent = new Intent(UserWithTeamActivity.this, FindPlayerActivity.class);
-            startActivity(intent);
+            if (canSomeoneBeAdded()) {
+                txtErr.setText("");
+                intent = new Intent(UserWithTeamActivity.this, FindPlayerActivity.class);
+                startActivity(intent);
+            }else{
+
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP,0,50);
+
+                TextView text = new TextView(UserWithTeamActivity.this);
+                text.setBackgroundColor(Color.rgb(206,205,205));
+                Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.rgb(190,39,39));
+                text.setTextSize(13);
+                text.setPadding(10,10,10,10);
+                text.setText("Already 5 Members Are There In The Team!");
+                toast.setView(text);
+                toast.show();
+
+            }
         } else {
 
             Toast toast = new Toast(getApplicationContext());
@@ -217,6 +235,14 @@ public class UserWithTeamActivity extends AppCompatActivity {
             toast.show();
 
         }
+    }
+
+    protected Boolean canSomeoneBeAdded(){
+        return (MainActivity.getUserTeamObject().getPlayer1().equalsIgnoreCase("no") ||
+                MainActivity.getUserTeamObject().getPlayer2().equalsIgnoreCase("no") ||
+                MainActivity.getUserTeamObject().getPlayer3().equalsIgnoreCase("no") ||
+                MainActivity.getUserTeamObject().getPlayer4().equalsIgnoreCase("no") ||
+                MainActivity.getUserTeamObject().getPlayer5().equalsIgnoreCase("no"));
     }
 
     /* To check the internet connection */
