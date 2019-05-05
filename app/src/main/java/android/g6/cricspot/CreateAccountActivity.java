@@ -144,7 +144,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                         text.setTextColor(Color.rgb(190, 39, 39));
                         text.setTextSize(13);
                         text.setPadding(10, 10, 10, 10);
-                        text.setText("Player " + name + " Added Successfully\n  Password is not secure");
+                        text.setText("Player " + name + " Added Successfully\n Password is not secure");
                         toast.setView(text);
                         toast.show();
 
@@ -165,7 +165,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                         text.setBackgroundColor(Color.rgb(206, 205, 205));
                         Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
                         text.setTypeface(typeface);
-                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextColor(Color.rgb(71,165,74));
                         text.setTextSize(13);
                         text.setPadding(10, 10, 10, 10);
                         text.setText("Player " + name + " Added Successfully");

@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="113dp"
+        android:layout_marginTop="99dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:textColor="@color/col1"
@@ -57,12 +57,25 @@
         android:id="@+id/playerListInTeamDetailsPage"
         android:layout_width="241dp"
         android:layout_height="291dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="60dp"
         android:listSelector="@color/col2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationTxtInTeamDetailsPage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="184dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Players"
+        android:textColor="@color/col1"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.237"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/locationTxtInTeamDetailsPage"
@@ -106,15 +119,15 @@
         android:id="@+id/back"
         android:layout_width="126dp"
         android:layout_height="56dp"
-        android:layout_marginTop="492dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
+        android:fontFamily="sans-serif-smallcaps"
         android:padding="30px"
         android:text="Go Back"
-        android:fontFamily="sans-serif-smallcaps"
         android:textColor="@color/col1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.877"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/playerListInTeamDetailsPage" />
 
 </android.support.constraint.ConstraintLayout>

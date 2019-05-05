@@ -74,8 +74,8 @@ public class TeamDetailsActivity extends AppCompatActivity implements View.OnCli
             }
         }
 
-        teamName.setText(selectedTeam.getName());
-        teamLocation.setText(selectedTeam.getLocation());
+        teamName.setText("Team Name : "+selectedTeam.getName());
+        teamLocation.setText("Location : "+selectedTeam.getLocation());
 
         listAdapter = new ArrayAdapter<String>(TeamDetailsActivity.this,
                 android.R.layout.simple_list_item_1,playersNameList);
