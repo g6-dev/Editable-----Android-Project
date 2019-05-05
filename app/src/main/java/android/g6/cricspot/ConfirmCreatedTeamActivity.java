@@ -84,7 +84,9 @@ public class ConfirmCreatedTeamActivity extends AppCompatActivity implements Vie
             //---------- SETTING USER'S PLAYER OBJECT STATICALLY - IN MAIN ACTIVITY ----------------
             Player player = MainActivity.getUserPlayerObject(); // Get the player object
             player.setTeam(team.getName()); // Set player's team name as the current team
+            player.setType("admin"); // Set player's type as 'admin' (User -> Admin)
             MainActivity.setUserPlayerObject(player); // Set MainActivity's player object
+
 
             //Update the player with changing team attribute
             dbManager.updatePlayerAttributeInFirebase(dbMemberNameForPlayer, player);
