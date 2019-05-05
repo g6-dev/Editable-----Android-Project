@@ -79,23 +79,54 @@ public class TeamDetailsForMatchActivity extends AppCompatActivity {
     public void requestMatchBtnClickedInTeamDetailsForMatchPage(View view) {
 
         if (isInternetOn()){
-            Team selectedTeam = MainActivity.getUserTeamObject();
+            if(MainActivity.getUserPlayerObject().getType().equalsIgnoreCase("admin")) {
+                Team selectedTeam = MainActivity.getUserTeamObject();
 
-            /* TODO: Update MainActivity challenger + true */
-            selectedTeam.setPlaying(true);
-            selectedTeam.setChallenger(challengerTeam.getName());
-            MainActivity.setUserTeamObject(selectedTeam); // Main activity update
+                /* TODO: Update MainActivity challenger + true */
+                selectedTeam.setPlaying(true);
+                selectedTeam.setChallenger(challengerTeam.getName());
+                MainActivity.setUserTeamObject(selectedTeam); // Main activity update
 
-            /* TODO: Update firebase challenger + true */
-            dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), selectedTeam);
+                /* TODO: Update firebase challenger + true */
+                dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), selectedTeam);
 
-            /* TODO: Update challengers firebase + false */
-            challengerTeam.setChallenger(selectedTeam.getName());
-            dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), challengerTeam);
+                /* TODO: Update challengers firebase + false */
+                challengerTeam.setChallenger(selectedTeam.getName());
+                dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), challengerTeam);
 
-            intent = new Intent(TeamDetailsForMatchActivity.this, MatchActivity.class);
-            startActivity(intent);
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP, 0, 50);
 
+                TextView text = new TextView(TeamDetailsForMatchActivity.this);
+                text.setBackgroundColor(Color.rgb(206, 205, 205));
+
+                Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.rgb(190, 39, 39));
+                text.setTextSize(13);
+                text.setPadding(10, 10, 10, 10);
+                text.setText("Request sent successfully!");
+                toast.setView(text);
+                toast.show();
+
+                intent = new Intent(TeamDetailsForMatchActivity.this, MatchActivity.class);
+                startActivity(intent);
+            }else{
+                Toast toast = new Toast(getApplicationContext());
+                toast.setGravity(Gravity.TOP,0,50);
+
+                TextView text = new TextView(TeamDetailsForMatchActivity.this);
+                text.setBackgroundColor(Color.rgb(206,205,205));
+
+                Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                text.setTypeface(typeface);
+                text.setTextColor(Color.rgb(190,39,39));
+                text.setTextSize(13);
+                text.setPadding(10,10,10,10);
+                text.setText("Only Admin Is Able To Request Match!");
+                toast.setView(text);
+                toast.show();
+            }
         }else{
 
             Toast toast = new Toast(getApplicationContext());
