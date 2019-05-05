@@ -81,37 +81,56 @@ public class TeamDetailsForMatchActivity extends AppCompatActivity {
         if (isInternetOn()){
             if(MainActivity.getUserPlayerObject().getType().equalsIgnoreCase("admin")) {
                 if ( ! isSomeoneMissingInTheTeam()) {
-                    Team selectedTeam = MainActivity.getUserTeamObject();
+                    if ( ! isSomeoneMissingInOpponentTeam()) {
+                        Team selectedTeam = MainActivity.getUserTeamObject();
 
-                    /* TODO: Update MainActivity challenger + true */
-                    selectedTeam.setPlaying(true);
-                    selectedTeam.setChallenger(challengerTeam.getName());
-                    MainActivity.setUserTeamObject(selectedTeam); // Main activity update
+                        /* TODO: Update MainActivity challenger + true */
+                        selectedTeam.setPlaying(true);
+                        selectedTeam.setChallenger(challengerTeam.getName());
+                        MainActivity.setUserTeamObject(selectedTeam); // Main activity update
 
-                    /* TODO: Update firebase challenger + true */
-                    dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), selectedTeam);
+                        /* TODO: Update firebase challenger + true */
+                        dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), selectedTeam);
 
-                    /* TODO: Update challengers firebase + false */
-                    challengerTeam.setChallenger(selectedTeam.getName());
-                    dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), challengerTeam);
+                        /* TODO: Update challengers firebase + false */
+                        challengerTeam.setChallenger(selectedTeam.getName());
+                        dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), challengerTeam);
 
-                    Toast toast = new Toast(getApplicationContext());
-                    toast.setGravity(Gravity.TOP, 0, 50);
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
 
-                    TextView text = new TextView(TeamDetailsForMatchActivity.this);
-                    text.setBackgroundColor(Color.rgb(206, 205, 205));
+                        TextView text = new TextView(TeamDetailsForMatchActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
 
-                    Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
-                    text.setTypeface(typeface);
-                    text.setTextColor(Color.rgb(190, 39, 39));
-                    text.setTextSize(13);
-                    text.setPadding(10, 10, 10, 10);
-                    text.setText("Request sent successfully!");
-                    toast.setView(text);
-                    toast.show();
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("Request sent successfully!");
+                        toast.setView(text);
+                        toast.show();
 
-                    intent = new Intent(TeamDetailsForMatchActivity.this, MatchActivity.class);
-                    startActivity(intent);
+                        intent = new Intent(TeamDetailsForMatchActivity.this, MatchActivity.class);
+                        startActivity(intent);
+                    }else{
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
+
+                        TextView text = new TextView(TeamDetailsForMatchActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
+
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("Opponent Team Doesn't Have 5 members!");
+                        toast.setView(text);
+                        toast.show();
+
+                    }
                 }else{
 
                     Toast toast = new Toast(getApplicationContext());
@@ -172,6 +191,14 @@ public class TeamDetailsForMatchActivity extends AppCompatActivity {
                 MainActivity.getUserTeamObject().getPlayer3().equalsIgnoreCase("no") ||
                 MainActivity.getUserTeamObject().getPlayer4().equalsIgnoreCase("no") ||
                 MainActivity.getUserTeamObject().getPlayer5().equalsIgnoreCase("no"));
+    }
+
+    protected Boolean isSomeoneMissingInOpponentTeam(){
+        return (challengerTeam.getPlayer1().equalsIgnoreCase("no") ||
+                challengerTeam.getPlayer2().equalsIgnoreCase("no") ||
+                challengerTeam.getPlayer3().equalsIgnoreCase("no") ||
+                challengerTeam.getPlayer4().equalsIgnoreCase("no") ||
+                challengerTeam.getPlayer5().equalsIgnoreCase("no"));
     }
 
     /* To check the internet connection */
