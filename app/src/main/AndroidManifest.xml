@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Creaters"></activity>
+        <activity android:name=".PerformanceDisplayScreen"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Creaters" />
         <activity android:name=".MatchActivity" />
         <activity android:name=".TeamDetailsForMatchActivity" />
         <activity android:name=".FindMatchActivity" />
@@ -24,7 +26,7 @@
         <activity android:name=".TeamDetailsActivity" />
         <activity android:name=".UserWithoutTeamActivity" />
         <activity android:name=".CreateAccountActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ScreenWelcomPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
