@@ -70,41 +70,59 @@ public class UserWithTeamActivity extends AppCompatActivity {
     public void exitTeamIsClickedInUserWithTeamPage(View view) {
         if (isInternetOn()) {
             if ( ! selectedPlayer.getType().equalsIgnoreCase("admin")) {
-                //Toast.makeText(UserWithTeamActivity.this, "Yet in maintenance", Toast.LENGTH_LONG).show();
-                /*TODO: Remove the player from the team, update in firebase + MainActivity*/
+                if (MainActivity.getUserTeamObject().getChallenger().equalsIgnoreCase("no")) {
+                    //Toast.makeText(UserWithTeamActivity.this, "Yet in maintenance", Toast.LENGTH_LONG).show();
+                    /*TODO: Remove the player from the team, update in firebase + MainActivity*/
 
-                // update the team object -> remove the player
-                if (selectedTeam.getPlayer1().equalsIgnoreCase(selectedPlayer.getUserName())) {
-                    selectedTeam.setPlayer1("no");
-                } else if (selectedTeam.getPlayer2().equalsIgnoreCase(selectedPlayer.getUserName())) {
-                    selectedTeam.setPlayer2("no");
-                } else if (selectedTeam.getPlayer3().equalsIgnoreCase(selectedPlayer.getUserName())) {
-                    selectedTeam.setPlayer3("no");
-                } else if (selectedTeam.getPlayer4().equalsIgnoreCase(selectedPlayer.getUserName())) {
-                    selectedTeam.setPlayer4("no");
-                } else if (selectedTeam.getPlayer5().equalsIgnoreCase(selectedPlayer.getUserName())) {
-                    selectedTeam.setPlayer5("no");
+                    // update the team object -> remove the player
+                    if (selectedTeam.getPlayer1().equalsIgnoreCase(selectedPlayer.getUserName())) {
+                        selectedTeam.setPlayer1("no");
+                    } else if (selectedTeam.getPlayer2().equalsIgnoreCase(selectedPlayer.getUserName())) {
+                        selectedTeam.setPlayer2("no");
+                    } else if (selectedTeam.getPlayer3().equalsIgnoreCase(selectedPlayer.getUserName())) {
+                        selectedTeam.setPlayer3("no");
+                    } else if (selectedTeam.getPlayer4().equalsIgnoreCase(selectedPlayer.getUserName())) {
+                        selectedTeam.setPlayer4("no");
+                    } else if (selectedTeam.getPlayer5().equalsIgnoreCase(selectedPlayer.getUserName())) {
+                        selectedTeam.setPlayer5("no");
+                    }
+
+                    //Update team in firebase
+                    dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), selectedTeam);
+
+                    //update team in MainActivity
+                    MainActivity.setUserTeamObject(selectedTeam);
+
+                    /*TODO: Remove the team from the player, update in the firebase + MainActivity*/
+
+                    //update the player object -> remove the team
+                    selectedPlayer.setTeam("no");
+
+                    //update player in firebase
+                    dbManager.updatePlayerAttributeInFirebase(DatabaseManager.getDbMemberNameForPlayer(), selectedPlayer);
+
+                    //update player in MainActivity
+                    MainActivity.setUserPlayerObject(selectedPlayer);
+
+                    intent = new Intent(UserWithTeamActivity.this, UserWithoutTeamActivity.class);
+                    startActivity(intent);
+                }else{
+
+                    Toast toast = new Toast(getApplicationContext());
+                    toast.setGravity(Gravity.TOP,0,50);
+
+                    TextView text = new TextView(UserWithTeamActivity.this);
+                    text.setBackgroundColor(Color.rgb(206,205,205));
+                    Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
+                    text.setTypeface(typeface);
+                    text.setTextColor(Color.rgb(190,39,39));
+                    text.setTextSize(13);
+                    text.setPadding(10,10,10,10);
+                    text.setText("Request sent, now can not be exit!!");
+                    toast.setView(text);
+                    toast.show();
+
                 }
-
-                //Update team in firebase
-                dbManager.updateTeamAttributeInFirebase(DatabaseManager.getDbMemberNameForTeam(), selectedTeam);
-
-                //update team in MainActivity
-                MainActivity.setUserTeamObject(selectedTeam);
-
-                /*TODO: Remove the team from the player, update in the firebase + MainActivity*/
-
-                //update the player object -> remove the team
-                selectedPlayer.setTeam("no");
-
-                //update player in firebase
-                dbManager.updatePlayerAttributeInFirebase(DatabaseManager.getDbMemberNameForPlayer(), selectedPlayer);
-
-                //update player in MainActivity
-                MainActivity.setUserPlayerObject(selectedPlayer);
-
-                intent = new Intent(UserWithTeamActivity.this, UserWithoutTeamActivity.class);
-                startActivity(intent);
             }else{
 
                 Toast toast = new Toast(getApplicationContext());
