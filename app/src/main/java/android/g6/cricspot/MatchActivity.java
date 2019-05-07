@@ -193,7 +193,7 @@ public class MatchActivity extends AppCompatActivity {
                         toast.setView(text);
                         toast.show();
 
-                        intent = new Intent(MatchActivity.this, UserWithTeamActivity.class);
+                        intent = new Intent(MatchActivity.this,UserWithTeamActivity.class);
                         startActivity(intent);
 
                     }
