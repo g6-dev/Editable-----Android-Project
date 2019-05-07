@@ -117,7 +117,8 @@
         android:ems="10"
         android:inputType="textVisiblePassword"
         android:background="@drawable/whitebtn"
-        android:textColor="@color/black"        app:layout_constraintBaseline_toBaselineOf="@+id/passwordTxtInCreateAccountPage"
+        android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/passwordTxtInCreateAccountPage"
         app:layout_constraintStart_toEndOf="@+id/passwordTxtInCreateAccountPage" />
 
     <TextView

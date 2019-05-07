@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.g6.cricspot.CricClasses.DatabaseManager;
 import android.g6.cricspot.CricObjects.MatchDetails;
+import android.g6.cricspot.CricObjects.PlayerPerformance;
 import android.g6.cricspot.CricObjects.Team;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -11,6 +12,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MatchActivity extends AppCompatActivity {
+
+    ArrayList<PlayerPerformance> performanceList = new ArrayList<PlayerPerformance>();
+
+    String teamname1,player2,player3,player4,player5,player1,runs1,runs2,runs3,runs4,runs5;
 
     TextView yoTeam, chlTeam, statusTxt,
             yoPlayer1, yoPlayer2, yoPlayer3, yoPlayer4, yoPlayer5,
@@ -101,6 +107,7 @@ public class MatchActivity extends AppCompatActivity {
                 setEditors(false); // Can not be edited right now
             }
         }
+
     }
 
     public void startOrFinishClickedInMatchPageButton(View view) {
@@ -147,6 +154,30 @@ public class MatchActivity extends AppCompatActivity {
 
                         updateEndingMatch(); // All database changes are here
 
+                        teamname1 = selectedTeam.getName();
+                        runs2 = yoPl2RunsE.getText().toString();
+                        player2 = selectedTeam.getPlayer2();
+                        player3 = selectedTeam.getPlayer3();
+                        player4 = selectedTeam.getPlayer4();
+                        player5 = selectedTeam.getPlayer5();
+                        player1 = selectedTeam.getPlayer1();
+                        runs1 = yoPl1RunsE.getText().toString();
+                        runs2 = yoPl2RunsE.getText().toString();
+                        runs3 = yoPl3RunsE.getText().toString();
+                        runs4 = yoPl4RunsE.getText().toString();
+                        runs5 = yoPl5RunsE.getText().toString();
+
+                        PlayerPerformance data1 = new PlayerPerformance(teamname1,player1,runs1);
+                        performanceList.add(data1);
+                        PlayerPerformance data2 = new PlayerPerformance(teamname1,player2,runs2);
+                        performanceList.add(data2);
+                        PlayerPerformance data3 = new PlayerPerformance(teamname1,player3,runs3);
+                        performanceList.add(data3);
+                        PlayerPerformance data4 = new PlayerPerformance(teamname1,player4,runs4);
+                        performanceList.add(data4);
+                        PlayerPerformance data5 = new PlayerPerformance(teamname1,player5,runs5);
+                        performanceList.add(data5);
+
                         Toast toast = new Toast(getApplicationContext());
                         toast.setGravity(Gravity.TOP,0,50);
 
@@ -158,12 +189,13 @@ public class MatchActivity extends AppCompatActivity {
                         text.setTextColor(Color.rgb(0,128,0));
                         text.setTextSize(13);
                         text.setPadding(10,10,10,10);
-                        text.setText("Match finished successfully");
+                        text.setText("Match finished successfully ");
                         toast.setView(text);
                         toast.show();
 
-                        intent = new Intent(MatchActivity.this, UserWithTeamActivity.class);
+                        intent = new Intent(MatchActivity.this,UserWithTeamActivity.class);
                         startActivity(intent);
+
                     }
                 }
             }else{
@@ -492,5 +524,7 @@ public class MatchActivity extends AppCompatActivity {
         intent = new Intent(MatchActivity.this, UserWithTeamActivity.class);
         startActivity(intent);
     }
+
+
 
 }
