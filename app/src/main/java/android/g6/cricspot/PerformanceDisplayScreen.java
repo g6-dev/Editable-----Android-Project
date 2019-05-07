@@ -11,16 +11,23 @@ public class PerformanceDisplayScreen extends AppCompatActivity {
     MatchActivity matchActivity = new MatchActivity();
 
     TextView teamnameprint,runsprint,playernameprint;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        teamnameprint = findViewById(R.id.teamname);
-        playernameprint = findViewById(R.id.playername);
-        runsprint = findViewById(R.id.runs);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_performance_display_screen);
 
+        teamnameprint = (TextView) findViewById(R.id.teamname);
+        playernameprint = (TextView) findViewById(R.id.playername);
+        runsprint = (TextView) findViewById(R.id.runs);
+
+        calculation();
+
+    }
+
+    private void calculation() {
 
         for(int i = 1; i <= matchActivity.performanceList.size();i++){
             int highscore = Integer.parseInt(matchActivity.performanceList.get(0).getRuns());
@@ -30,18 +37,18 @@ public class PerformanceDisplayScreen extends AppCompatActivity {
                 int s = i;
 
                 if(i==4){
-                   int score = Integer.parseInt(matchActivity.performanceList.get(s).getRuns());
-                   String playernames = matchActivity.performanceList.get(s).getPlayername();
-                   String team = matchActivity.performanceList.get(s).getTeamname();
+                    int score = highscore;
+                    String playernames = matchActivity.performanceList.get(s).getPlayername();
+                    String team = matchActivity.performanceList.get(s).getTeamname();
 
                     teamnameprint.setText(team);
                     playernameprint.setText(playernames);
                     runsprint.setText(score);
                 }
             }else{
-                int score = Integer.parseInt(matchActivity.performanceList.get(i).getRuns());
-                String playernames = matchActivity.performanceList.get(i).getPlayername();
-                String team = matchActivity.performanceList.get(i).getTeamname();
+                int score = Integer.parseInt(matchActivity.performanceList.get(0).getRuns());
+                String playernames = matchActivity.performanceList.get(0).getPlayername();
+                String team = matchActivity.performanceList.get(0).getTeamname();
 
                 teamnameprint.setText(team);
                 playernameprint.setText(playernames);
@@ -49,7 +56,6 @@ public class PerformanceDisplayScreen extends AppCompatActivity {
 
             }
         }
-
     }
 
     public void back(View view) {
