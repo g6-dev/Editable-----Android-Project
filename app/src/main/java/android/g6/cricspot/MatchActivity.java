@@ -46,7 +46,11 @@ public class MatchActivity extends AppCompatActivity {
     List<Team> listOfAllTeams = new ArrayList<>();
     DatabaseManager dbManager = new DatabaseManager();
     Intent intent;
-    MatchDetails matchDetails = new MatchDetails();
+    private static MatchDetails matchDetails = new MatchDetails();
+
+    public static MatchDetails getMatchDetails() {
+        return matchDetails;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
