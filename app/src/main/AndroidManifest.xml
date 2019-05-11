@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PerformanceDisplayScreen"></activity>
+        <activity android:name=".MatchSummaryActivity"></activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".Creaters" />
         <activity android:name=".MatchActivity" />
