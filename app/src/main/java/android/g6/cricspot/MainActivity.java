@@ -254,29 +254,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void testingPages(View view) {
-
-//        if(isInternetOn()) {
-//            intent = new Intent(MainActivity.this, FindMatchActivity.class);
-//            startActivity(intent);
-//
-//        }else{
-//
-//            Toast toast = new Toast(getApplicationContext());
-//            toast.setGravity(Gravity.TOP,0,50);
-//
-//            TextView text = new TextView(MainActivity.this);
-//            text.setBackgroundColor(Color.rgb(206,205,205));
-//            Typeface typeface = Typeface.create("sans-serif-smallcaps",Typeface.NORMAL);
-//            text.setTypeface(typeface);
-//            text.setTextColor(Color.rgb(190,39,39));
-//            text.setTextSize(13);
-//            text.setPadding(10,10,10,10);
-//            text.setText("Network Error");
-//            toast.setView(text);
-//            toast.show();
-//
-//        }
-       // System.out.println(">>>>> Nothing is tested here!");
+        String s = "25";
+        int i = Integer.valueOf(s);
+        double d = Double.valueOf(s);
+        System.out.println(">>>>> string value of 25 in int is "+i+", in double is "+d);
     }
 
     @Override
@@ -285,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    //editional stuffs
+    //Additional stuffs
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

@@ -40,13 +40,17 @@ public class MatchSummaryActivity extends AppCompatActivity {
         continueBtn = findViewById(R.id.continueBtnInMatchSummary);
         shareBtn = findViewById(R.id.shareBtnInMatchSummary);
 
+        System.out.println(">>>>> yoPL runs "+md.getYoPl1Runs()+", to int  -> "+Integer.valueOf(md.getYoPl1Runs()));
+
         int yoTeamTotal = Integer.valueOf(md.getYoPl1Runs()) + Integer.valueOf(md.getYoPl2Runs()) +
                 Integer.valueOf(md.getYoPl3Runs()) + Integer.valueOf(md.getYoPl4Runs()) +
                 Integer.valueOf(md.getYoPl5Runs());
+        System.out.println(">>>>> yo team total : " + yoTeamTotal);
 
         int chlTeamTotal = Integer.valueOf(md.getChlPl1Runs()) + Integer.valueOf(md.getChlPl2Runs()) +
                 Integer.valueOf(md.getChlPl3Runs()) + Integer.valueOf(md.getChlPl4Runs()) +
                 Integer.valueOf(md.getChlPl5Runs());
+        System.out.println(">>>>> chl team total : " + chlTeamTotal);
 
         if (yoTeamTotal > chlTeamTotal){
 
@@ -116,16 +120,22 @@ public class MatchSummaryActivity extends AppCompatActivity {
                                    String pl3, int pl3Runs, String pl4, int pl4Runs,
                                    String pl5, int pl5Runs){
 
+        System.out.println(">>>>> MatchSum : starting bats : ");
         if(pl1Runs > pl2Runs && pl1Runs > pl3Runs && pl1Runs > pl4Runs && pl1Runs > pl5Runs){
             bestBatsman.setText(pl1);
+            System.out.println(">>>>> MatchSum : starting bats : "+pl1);
         }else if(pl2Runs > pl3Runs && pl2Runs > pl4Runs && pl2Runs > pl5Runs){
             bestBatsman.setText(pl2);
+            System.out.println(">>>>> MatchSum : starting bats : "+pl2);
         }else if(pl3Runs > pl4Runs && pl3Runs > pl5Runs) {
             bestBatsman.setText(pl3);
+            System.out.println(">>>>> MatchSum : starting bats : "+pl3);
         }else if(pl4Runs > pl5Runs){
             bestBatsman.setText(pl4);
+            System.out.println(">>>>> MatchSum : starting bats : "+pl4);
         }else{
             bestBatsman.setText(pl5);
+            System.out.println(">>>>> MatchSum : starting bats : "+pl5);
         }
 
         System.out.println(">>>>> best batsman: " + bestBatsman.getText());

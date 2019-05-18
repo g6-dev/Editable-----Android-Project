@@ -46,6 +46,7 @@ public class MatchActivity extends AppCompatActivity {
     List<Team> listOfAllTeams = new ArrayList<>();
     DatabaseManager dbManager = new DatabaseManager();
     Intent intent;
+
     private static MatchDetails matchDetails = new MatchDetails();
 
     public static MatchDetails getMatchDetails() {
@@ -404,47 +405,58 @@ public class MatchActivity extends AppCompatActivity {
     protected Boolean isEmptyFields() {
         matchDetails.setYoTeam(selectedTeam.getName());
 
+        matchDetails.setYoPl1(yoPlayer1.getText().toString());
         matchDetails.setYoPl1Runs(yoPl1RunsE.getText().toString());
         matchDetails.setYoPl1Overs(yoPl1OversE.getText().toString());
         matchDetails.setYoPl1Wkts(yoPl1WktsE.getText().toString());
 
+        matchDetails.setYoPl2(yoPlayer2.getText().toString());
         matchDetails.setYoPl2Runs(yoPl2RunsE.getText().toString());
         matchDetails.setYoPl2Overs(yoPl2OversE.getText().toString());
         matchDetails.setYoPl2Wkts(yoPl2WktsE.getText().toString());
 
+        matchDetails.setYoPl3(yoPlayer3.getText().toString());
         matchDetails.setYoPl3Runs(yoPl3RunsE.getText().toString());
         matchDetails.setYoPl3Overs(yoPl3OversE.getText().toString());
         matchDetails.setYoPl3Wkts(yoPl3WktsE.getText().toString());
 
+        matchDetails.setYoPl4(yoPlayer4.getText().toString());
         matchDetails.setYoPl4Runs(yoPl4RunsE.getText().toString());
         matchDetails.setYoPl4Overs(yoPl4OversE.getText().toString());
         matchDetails.setYoPl4Wkts(yoPl4WktsE.getText().toString());
 
+        matchDetails.setYoPl5(yoPlayer5.getText().toString());
         matchDetails.setYoPl5Runs(yoPl5RunsE.getText().toString());
         matchDetails.setYoPl5Overs(yoPl5OversE.getText().toString());
         matchDetails.setYoPl5Wkts(yoPl5WktsE.getText().toString());
 
         matchDetails.setChlTeam(challengerTeam.getName());
 
+        matchDetails.setChlPl1(chlPlayer1.getText().toString());
         matchDetails.setChlPl1Runs(chlPl1RunsE.getText().toString());
         matchDetails.setChlPl1Overs(chlPl1OversE.getText().toString());
         matchDetails.setChlPl1Wkts(chlPl1WktsE.getText().toString());
 
+        matchDetails.setChlPl2(chlPlayer2.getText().toString());
         matchDetails.setChlPl2Runs(chlPl2RunsE.getText().toString());
         matchDetails.setChlPl2Overs(chlPl2OversE.getText().toString());
         matchDetails.setChlPl2Wkts(chlPl2WktsE.getText().toString());
 
+        matchDetails.setChlPl3(chlPlayer3.getText().toString());
         matchDetails.setChlPl3Runs(chlPl3RunsE.getText().toString());
         matchDetails.setChlPl3Overs(chlPl3OversE.getText().toString());
         matchDetails.setChlPl3Wkts(chlPl3WktsE.getText().toString());
 
+        matchDetails.setChlPl4(chlPlayer4.getText().toString());
         matchDetails.setChlPl4Runs(chlPl4RunsE.getText().toString());
         matchDetails.setChlPl4Overs(chlPl4OversE.getText().toString());
         matchDetails.setChlPl4Wkts(chlPl4WktsE.getText().toString());
 
+        matchDetails.setChlPl5(chlPlayer5.getText().toString());
         matchDetails.setChlPl5Runs(chlPl5RunsE.getText().toString());
         matchDetails.setChlPl5Overs(chlPl5OversE.getText().toString());
         matchDetails.setChlPl5Wkts(chlPl5WktsE.getText().toString());
+
 
         if (matchDetails.getYoPl1Runs().equalsIgnoreCase("") ||
                 matchDetails.getYoPl1Overs().equalsIgnoreCase("") ||

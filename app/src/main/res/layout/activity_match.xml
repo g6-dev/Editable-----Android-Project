@@ -113,6 +113,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/runs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer1txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer1txtInMatchPage" />
@@ -126,6 +127,7 @@
             android:ems="10"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/overs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer1txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer1RunsInMatchPage" />
@@ -138,6 +140,7 @@
             android:layout_marginLeft="8dp"
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
+            android:text="0"
             android:hint="@string/wckts"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer1txtInMatchPage"
@@ -163,6 +166,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
             android:ems="10"
+            android:text="0"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/runs"
             android:inputType="number"
@@ -177,6 +181,7 @@
             android:layout_marginLeft="40dp"
             android:ems="10"
             android:hint="@string/overs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer2txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer2RunsInMatchPage" />
@@ -189,6 +194,7 @@
             android:layout_marginLeft="8dp"
             android:ems="10"
             android:hint="@string/wckts"
+            android:text="0"
             android:fontFamily="sans-serif-smallcaps"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer2txtInMatchPage"
@@ -216,6 +222,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/runs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer3txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer3txtInMatchPage" />
@@ -227,6 +234,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:ems="10"
+            android:text="0"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/overs"
             android:inputType="number"
@@ -241,6 +249,7 @@
             android:layout_marginLeft="8dp"
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
+            android:text="0"
             android:hint="@string/wckts"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer3txtInMatchPage"
@@ -268,6 +277,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/runs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer4txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer4txtInMatchPage" />
@@ -281,6 +291,7 @@
             android:ems="10"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/overs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer4txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer4RunsInMatchPage" />
@@ -294,6 +305,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/wckts"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer4txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer4OversInMatchPage" />
@@ -320,6 +332,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/runs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer5txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer5txtInMatchPage" />
@@ -333,6 +346,7 @@
             android:ems="10"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/overs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer5txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer5RunsInMatchPage" />
@@ -346,6 +360,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/wckts"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/yourPlayer5txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/yourPlayer5OversInMatchPage" />
@@ -387,6 +402,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/runs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer1txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer1txtInMatchPage" />
@@ -398,6 +414,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:ems="10"
+            android:text="0"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/overs"
             android:inputType="number"
@@ -413,6 +430,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/wckts"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer1txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer1OversInMatchPage" />
@@ -438,6 +456,7 @@
             android:layout_marginLeft="32dp"
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
+            android:text="0"
             android:hint="@string/runs"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer2txtInMatchPage"
@@ -452,6 +471,7 @@
             android:ems="10"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/overs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer2txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer2RunsInMatchPage" />
@@ -465,6 +485,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/wckts"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer2txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer2OversInMatchPage" />
@@ -491,6 +512,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/runs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer3txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer3txtInMatchPage" />
@@ -504,6 +526,7 @@
             android:ems="10"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/overs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer3txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer3RunsInMatchPage" />
@@ -517,6 +540,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/wckts"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer3txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer3OversInMatchPage" />
@@ -543,6 +567,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/runs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer4txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer4txtInMatchPage" />
@@ -554,6 +579,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:ems="10"
+            android:text="0"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/overs"
             android:inputType="number"
@@ -568,6 +594,7 @@
             android:layout_marginLeft="8dp"
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
+            android:text="0"
             android:hint="@string/wckts"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer4txtInMatchPage"
@@ -595,6 +622,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:ems="10"
             android:hint="@string/runs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer5txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer5txtInMatchPage" />
@@ -608,6 +636,7 @@
             android:ems="10"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/overs"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer5txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer5RunsInMatchPage" />
@@ -621,6 +650,7 @@
             android:ems="10"
             android:fontFamily="sans-serif-smallcaps"
             android:hint="@string/wckts"
+            android:text="0"
             android:inputType="number"
             app:layout_constraintBaseline_toBaselineOf="@+id/challengerPlayer5txtInMatchPage"
             app:layout_constraintStart_toEndOf="@+id/challengerPlayer5OversInMatchPage" />
