@@ -112,6 +112,49 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     public void startOrFinishClickedInMatchPageButton(View view) {
+
+        int yop1 = Integer.parseInt(yoPl1RunsE.getText().toString());
+        int yop2 = Integer.parseInt(yoPl1RunsE.getText().toString());
+        int yop3 = Integer.parseInt(yoPl1RunsE.getText().toString());
+        int yop4 = Integer.parseInt(yoPl1RunsE.getText().toString());
+        int yop5 = Integer.parseInt(yoPl1RunsE.getText().toString());
+
+        int op1 = Integer.parseInt(chlPl1RunsE.getText().toString());
+        int op2 = Integer.parseInt(chlPl2RunsE.getText().toString());
+        int op3 = Integer.parseInt(chlPl3RunsE.getText().toString());
+        int op4 = Integer.parseInt(chlPl4RunsE.getText().toString());
+        int op5 = Integer.parseInt(chlPl5RunsE.getText().toString());
+
+        int yop1over = Integer.parseInt(yoPl1OversE.getText().toString());
+        int yop2over = Integer.parseInt(yoPl2OversE.getText().toString());
+        int yop3over = Integer.parseInt(yoPl3OversE.getText().toString());
+        int yop4over = Integer.parseInt(yoPl4OversE.getText().toString());
+        int yop5over = Integer.parseInt(yoPl5OversE.getText().toString());
+
+        int op1over = Integer.parseInt(chlPl1OversE.getText().toString());
+        int op2over = Integer.parseInt(chlPl2OversE.getText().toString());
+        int op3over = Integer.parseInt(chlPl3OversE.getText().toString());
+        int op4over = Integer.parseInt(chlPl4OversE.getText().toString());
+        int op5over = Integer.parseInt(chlPl5OversE.getText().toString());
+
+        int yop1wkt = Integer.parseInt(yoPl1WktsE.getText().toString());
+        int yop2wkt= Integer.parseInt(yoPl2WktsE.getText().toString());
+        int yop3wkt = Integer.parseInt(yoPl3WktsE.getText().toString());
+        int yop4wkt = Integer.parseInt(yoPl4WktsE.getText().toString());
+        int yop5wkt = Integer.parseInt(yoPl5WktsE.getText().toString());
+
+        int op1wkt = Integer.parseInt(chlPl1WktsE.getText().toString());
+        int op2wkt = Integer.parseInt(chlPl2WktsE.getText().toString());
+        int op3wkt = Integer.parseInt(chlPl3WktsE.getText().toString());
+        int op4wkt = Integer.parseInt(chlPl4WktsE.getText().toString());
+        int op5wkt = Integer.parseInt(chlPl5WktsE.getText().toString());
+
+        int yoteamwick = yop1wkt + yop2wkt + yop3wkt + yop4wkt + yop5wkt;
+        int oppteamwick = op1wkt + op2wkt + op3wkt + op4wkt + op5wkt;
+
+        int yoteam0ver = yop1over + yop2over + yop3over + yop4over + yop5over;
+        int oppteamover = op1over + op2over + op3over + op4over + op5over;
+
         if (isInternetOn()) {
             if(MainActivity.getUserPlayerObject().getType().equalsIgnoreCase("admin")) {
 
@@ -149,7 +192,95 @@ public class MatchActivity extends AppCompatActivity {
                         toast.setView(text);
                         toast.show();
 
-                    } else {
+                    } else if(yop1 < 0 || yop2 < 0 || yop3 < 0 || yop4 < 0 || yop5 < 0 || op1 < 0 || op2 < 0 || op3 < 0 || op4 < 0 || op5 < 0) {
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
+
+                        TextView text = new TextView(MatchActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
+
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("Player can score minimum runs is 0");
+                        toast.setView(text);
+                        toast.show();
+
+                    }else if(yop1over < 0 || yop2over < 0 || yop3over < 0 || yop4over < 0 || yop5over < 0 || op1over < 0 || op2over < 0
+                            || op3over < 0 || op4over < 0 || op5over < 0) {
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
+
+                        TextView text = new TextView(MatchActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
+
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("Minimum over can play by bowler is 0");
+                        toast.setView(text);
+                        toast.show();
+
+                    }else if(yop1wkt < 0 || yop2wkt < 0 || yop3wkt < 0 || yop4wkt < 0 || yop5wkt < 0 || op1wkt < 0 || op2wkt < 0
+                            || op3wkt < 0 || op4wkt < 0 || op5wkt < 0) {
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
+
+                        TextView text = new TextView(MatchActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
+
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("Minimum wickets bowler can get 0");
+                        toast.setView(text);
+                        toast.show();
+
+                    }else if(yoteam0ver > 10 || oppteamover > 10){
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
+
+                        TextView text = new TextView(MatchActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
+
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("One team can play maximum overs is 10");
+                        toast.setView(text);
+                        toast.show();
+
+                    }else if(yoteamwick > 5 || oppteamwick > 5){
+
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP, 0, 50);
+
+                        TextView text = new TextView(MatchActivity.this);
+                        text.setBackgroundColor(Color.rgb(206, 205, 205));
+
+                        Typeface typeface = Typeface.create("sans-serif-smallcaps", Typeface.NORMAL);
+                        text.setTypeface(typeface);
+                        text.setTextColor(Color.rgb(190, 39, 39));
+                        text.setTextSize(13);
+                        text.setPadding(10, 10, 10, 10);
+                        text.setText("One team can get maximum wicket is 5");
+                        toast.setView(text);
+                        toast.show();
+
+                    }else{
+
                         dbManager.addMatchDetailsToFirebase(DatabaseManager.getDbMemberNameForMatchDetails(),
                                 matchDetails);
 
@@ -175,6 +306,7 @@ public class MatchActivity extends AppCompatActivity {
 
                     }
                 }
+
             }else{
 
                 Toast toast = new Toast(getApplicationContext());
@@ -193,6 +325,7 @@ public class MatchActivity extends AppCompatActivity {
                 toast.show();
 
             }
+
         } else {
 
             Toast toast = new Toast(getApplicationContext());
